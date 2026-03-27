@@ -29,30 +29,44 @@
 }
 
 /* 選手テーブル */
+/* スクロール用ラッパー */
+.table_wrap {
+  overflow-x: auto;
+}
+
+/* テーブル */
 #player_table {
-  width: 100% !important;
+  width: 100%;
   font-size: 16px !important;
   border-collapse: collapse;
 }
 
+/* セル共通 */
 #player_table th,
 #player_table td {
   border: 1px solid #ccc !important;
   padding: 10px !important;
 }
 
-/* ★ 名前幅（おすすめ設定） */
+/* 名前（1行固定） */
 #player_table th:nth-child(1),
 #player_table td:nth-child(1) {
-  width: 160px !important;
+  width: 160px;
+  white-space: nowrap;
 }
 
-/* 前所属の折り返し */
+/* 前所属（折り返し） */
+#player_table th:last-child,
 #player_table td:last-child {
-  word-break: break-all;
+  width: 40%;              /* ←ここを追加（30〜50%で調整OK） */
+  white-space: normal;
+  word-break: keep-all;    /* ←これが重要（1文字折れ防止） */
 }
-
-/* タブ選択状態 */
+/* その他の列（普通に表示） */
+#player_table td:not(:first-child):not(:last-child),
+#player_table th:not(:first-child):not(:last-child) {
+  white-space: nowrap;
+}}/* タブ選択状態 */
 .m-submenu a.active {
   background-color: #007bff !important;
   color: white !important;
@@ -128,6 +142,7 @@
 <section id="player_section" style="display:none;">
 <h2 class="m-title02">選手・スタッフ</h2>
 
+<div class="table_wrap">
 <table id="player_table">
 <thead>
 <tr>
