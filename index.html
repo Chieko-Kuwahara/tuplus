@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>東京ユナイテッドFCプラス 試合一覧</title>
+
+<link rel="stylesheet" href="https://use.typekit.net/wcn1pnu.css">
+<link rel="stylesheet" href="https://tokyo-united-fc.jp/common/css/slick.css">
+<link rel="stylesheet" href="https://tokyo-united-fc.jp/common/css/style.css">
+<link rel="stylesheet" href="https://tokyo-united-fc.jp/tuplus/css/style.css">
+
+<style>
+#main_visual .visual {
+  background-image: url(https://tokyo-united-fc.s3.ap-northeast-1.amazonaws.com/image/banner/16912_1477x1108_67c254fb6cad0.jpg);
+}
+
+/* 勝敗カラー */
+.goal.win { color: blue; font-weight: bold; }
+.goal.lose { color: black; font-weight: bold; }
+.goal.draw { color: green; font-weight: bold; }
+
+/* 試合テーブル横スクロール */
+#result_table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* 選手テーブル */
+#player_table {
+  width: 100% !important;
+  font-size: 16px !important;
+  border-collapse: collapse;
+}
+
+#player_table th,
+#player_table td {
+  border: 1px solid #ccc !important;
+  padding: 10px !important;
+}
+
+/* ★ 名前幅（おすすめ設定） */
+#player_table th:nth-child(1),
+#player_table td:nth-child(1) {
+  width: 160px !important;
+}
+
+/* 前所属の折り返し */
+#player_table td:last-child {
+  word-break: break-all;
+}
+
+/* タブ選択状態 */
+.m-submenu a.active {
+  background-color: #007bff !important;
+  color: white !important;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+#player_table td:not(:last-child),
+#player_table th:not(:last-child) {
+  text-align: center !important;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="inner">
+<div class="title">
+<a href="/">
+<h1 class="logo">
+<img src="https://tokyo-united-fc.jp/common/img/logo_tufc.svg">
+</h1>
+<strong>TOKYO UNITED FC</strong>Official Website
+</a>
+</div>
+</div>
+</header>
+
+<div id="main_visual">
+<div class="visual">
+<div class="title">
+<div class="ja">東京ユナイテッドFCプラス</div>
+<div class="en">TOKYO UNITED FC PLUS</div>
+</div>
+</div>
+</div>
+
+<div class="inner">
+<div id="main">
+
+<div class="main_head team">
+<div class="lead">
+社会人としての成長が「プラスα」の価値をもたらす、という確信をチーム名に込めています。
+</div>
+</div>
+
+<!-- タブ -->
+<div class="m-submenu team">
+<ul>
+<li><h1><a href="#" id="tab_match" class="active">試合一覧</a></h1></li>
+<li><a href="#" id="tab_player">選手・スタッフ</a></li>
+<li><a href="#">ニュース</a></li>
+</ul>
+</div>
+
+<!-- 試合 -->
+<section id="match_section">
+<h2 class="m-title02">2025 東京都社会人サッカーリーグ1部</h2>
+
+<table id="result_table">
+<thead>
+<tr>
+<th class="sec">節</th>
+<th class="info">日時・会場</th>
+<th class="score">対戦・スコア</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</section>
+
+<!-- 選手 -->
+<section id="player_section" style="display:none;">
+<h2 class="m-title02">選手・スタッフ</h2>
+
+<table id="player_table">
+<thead>
+<tr>
+<th>名前</th>
+<th>ポジション</th>
+<th>背番号</th>
+<th>生年月日</th>
+<th>身長</th>
+<th>体重</th>
+<th>前所属</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</section>
+
+</div>
+</div>
+
+<footer>
+<div class="copyright">
+<div class="inner">
+© 2026 東京ユナイテッドFC
+</div>
+</div>
+</footer>
+
+<script src="https://tokyo-united-fc.jp/common/js/jquery-3.6.0.min.js"></script>
+
+<script>
+// ===== 試合CSV =====
+fetch("matches.csv")
+.then(res => res.text())
+.then(text => {
+  const rows = text.split("\n").slice(1);
+  const tbody = document.querySelector("#result_table tbody");
+
+  rows.forEach(row => {
+    if (!row.trim()) return;
+
+    const cols = row.split(",");
+
+    const scored = Number(cols[6]);
+    const conceded = Number(cols[7]);
+
+    let result = "△";
+    let cls = "draw";
+
+    if (scored > conceded) { result = "○"; cls = "win"; }
+    if (scored < conceded) { result = "●"; cls = "lose"; }
+
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td class="sec">${cols[0]}</td>
+      <td class="info">
+        <span class="date">${cols[1]} ${cols[2]}</span>
+        <span class="m-label01 ${cols[3].toLowerCase()}">${cols[3]}</span>
+        <span class="stadium">${cols[4]}</span>
+      </td>
+      <td class="score">
+        <span class="team">${cols[5]}</span>
+        <span class="goal ${cls}">
+          ${result} ${scored}-${conceded}
+        </span>
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+});
+
+// ===== 選手CSV =====
+fetch("players.csv")
+.then(res => res.text())
+.then(text => {
+  const rows = text.split("\n").slice(1);
+  const tbody = document.querySelector("#player_table tbody");
+
+  rows.forEach(row => {
+    if (!row.trim()) return;
+
+    const cols = row.split(",");
+
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${cols[0]}</td>
+      <td>${cols[1]}</td>
+      <td>${cols[2]}</td>
+      <td>${cols[3]}</td>
+      <td>${cols[4]}</td>
+      <td>${cols[5]}</td>
+      <td>${cols[6]}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+});
+
+// ===== タブ切替 =====
+document.getElementById("tab_match").addEventListener("click", function(e){
+  e.preventDefault();
+  document.getElementById("match_section").style.display = "block";
+  document.getElementById("player_section").style.display = "none";
+
+  this.classList.add("active");
+  document.getElementById("tab_player").classList.remove("active");
+});
+
+document.getElementById("tab_player").addEventListener("click", function(e){
+  e.preventDefault();
+  document.getElementById("match_section").style.display = "none";
+  document.getElementById("player_section").style.display = "block";
+
+  this.classList.add("active");
+  document.getElementById("tab_match").classList.remove("active");
+});
+</script>
+
+</body>
+</html>
