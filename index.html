@@ -546,6 +546,29 @@ tabPlayer.onclick = (e) => {
     loadMatches(btn.dataset.year);
   };
 });
+  tabMatch.onclick = (e) => {
+  e.preventDefault();
+
+  document.getElementById("match_section").style.display = "block";
+  document.getElementById("player_section").style.display = "none";
+
+  document.querySelector(".season").style.display = "block"; // ←追加
+
+  tabMatch.classList.add("active");
+  tabPlayer.classList.remove("active");
+};
+
+tabPlayer.onclick = (e) => {
+  e.preventDefault();
+
+  document.getElementById("match_section").style.display = "none";
+  document.getElementById("player_section").style.display = "block";
+
+  document.querySelector(".season").style.display = "none"; // ←追加
+
+  tabPlayer.classList.add("active");
+  tabMatch.classList.remove("active");
+};
 
 // 初期表示
 loadMatches("2026");
