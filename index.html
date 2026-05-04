@@ -265,6 +265,70 @@
 #player_table td:last-child {
   width: 300px;
   white-space: normal;
+}/* ===== 選手テーブル全体 ===== */
+.table_wrap {
+  overflow-x: auto;
+}
+
+#player_table {
+  width: 900px; /* ←ここで全体幅固定（好みで800〜1000px） */
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+/* ===== 共通セル ===== */
+#player_table th,
+#player_table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+/* ===== 中央揃え（経歴以外） ===== */
+#player_table th:not(:last-child),
+#player_table td:not(:last-child) {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===== 名前 ===== */
+#player_table th:nth-child(1),
+#player_table td:nth-child(1) {
+  width: 140px;
+}
+
+/* ===== ポジション ===== */
+#player_table th:nth-child(2),
+#player_table td:nth-child(2) {
+  width: 70px;
+}
+
+/* ===== 背番号 ===== */
+#player_table th:nth-child(3),
+#player_table td:nth-child(3) {
+  width: 60px;
+}
+
+/* ===== 生年月日 ===== */
+#player_table th:nth-child(4),
+#player_table td:nth-child(4) {
+  width: 110px;
+}
+
+/* ===== 身長・体重 ===== */
+#player_table th:nth-child(5),
+#player_table td:nth-child(5),
+#player_table th:nth-child(6),
+#player_table td:nth-child(6) {
+  width: 70px;
+}
+
+/* ===== 前所属（広く＆折り返し） ===== */
+#player_table th:last-child,
+#player_table td:last-child {
+  width: 300px;
+  text-align: left;
+  white-space: normal;
+  word-break: keep-all;
 }
 </style>
 </head>
