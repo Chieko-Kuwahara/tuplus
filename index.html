@@ -517,15 +517,17 @@ fetch("players.csv")
   });
 });
 
-// ===== タブ切替 =====
+// ===== タブ取得 =====
 const tabMatch = document.getElementById("tab_match");
 const tabPlayer = document.getElementById("tab_player");
 
+// ===== タブ切替 =====
 tabMatch.onclick = (e) => {
   e.preventDefault();
 
   document.getElementById("match_section").style.display = "block";
   document.getElementById("player_section").style.display = "none";
+  document.querySelector(".season").style.display = "block"; // ←表示
 
   tabMatch.classList.add("active");
   tabPlayer.classList.remove("active");
@@ -536,42 +538,29 @@ tabPlayer.onclick = (e) => {
 
   document.getElementById("match_section").style.display = "none";
   document.getElementById("player_section").style.display = "block";
+  document.querySelector(".season").style.display = "none"; // ←非表示
 
   tabPlayer.classList.add("active");
   tabMatch.classList.remove("active");
-};document.querySelectorAll(".season button").forEach(btn => {
+};
+
+// ===== 年切替 =====
+document.querySelectorAll(".season button").forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll(".season button").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     loadMatches(btn.dataset.year);
   };
 });
-  tabMatch.onclick = (e) => {
-  e.preventDefault();
 
-  document.getElementById("match_section").style.display = "block";
-  document.getElementById("player_section").style.display = "none";
-
-  document.querySelector(".season").style.display = "block"; // ←追加
-
-  tabMatch.classList.add("active");
-  tabPlayer.classList.remove("active");
-};
-
-tabPlayer.onclick = (e) => {
-  e.preventDefault();
-
-  document.getElementById("match_section").style.display = "none";
-  document.getElementById("player_section").style.display = "block";
-
-  document.querySelector(".season").style.display = "none"; // ←追加
-
-  tabPlayer.classList.add("active");
-  tabMatch.classList.remove("active");
-};
-
-// 初期表示
+// ===== 初期表示（重要）=====
 loadMatches("2026");
+document.querySelector('.season button[data-year="2026"]').classList.add("active");
+
+// ★ここが今回のポイント
+document.getElementById("player_section").style.display = "none";
+document.querySelector(".season").style.display = "block";
+
 </script>
 
 </body>
