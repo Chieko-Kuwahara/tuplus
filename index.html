@@ -209,13 +209,17 @@ function loadMatches(year) {
 
        const hasScore = cols[6].trim() !== "" && cols[7].trim() !== "";
 
-const scored = hasScore ? Number(cols[6]) : null;
-const conceded = hasScore ? Number(cols[7]) : null;
+const hasScore = cols[6].trim() !== "" && cols[7].trim() !== "";
 
-      let result = "";
+let scored = null;
+let conceded = null;
+let result = "";
 let cls = "";
 
-if (cols[6] && cols[7]) {
+if (hasScore) {
+  scored = Number(cols[6]);
+  conceded = Number(cols[7]);
+
   if (scored > conceded) { result = "○"; cls = "win"; }
   else if (scored < conceded) { result = "●"; cls = "lose"; }
   else { result = "△"; cls = "draw"; }
