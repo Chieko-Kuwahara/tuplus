@@ -210,11 +210,14 @@ function loadMatches(year) {
         const scored = Number(cols[6]);
         const conceded = Number(cols[7]);
 
-        let result = "△";
-        let cls = "draw";
+      let result = "";
+let cls = "";
 
-        if (scored > conceded) { result = "○"; cls = "win"; }
-        if (scored < conceded) { result = "●"; cls = "lose"; }
+if (cols[6] && cols[7]) {
+  if (scored > conceded) { result = "○"; cls = "win"; }
+  else if (scored < conceded) { result = "●"; cls = "lose"; }
+  else { result = "△"; cls = "draw"; }
+}
 
         const tr = document.createElement("tr");
 
