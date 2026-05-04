@@ -539,7 +539,13 @@ tabPlayer.onclick = (e) => {
 
   tabPlayer.classList.add("active");
   tabMatch.classList.remove("active");
-};
+};document.querySelectorAll(".season button").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll(".season button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    loadMatches(btn.dataset.year);
+  };
+});
 
 // 初期表示
 loadMatches("2026");
