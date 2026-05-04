@@ -226,6 +226,45 @@
   }
 }#player_table {
   font-size: 16px !important;
+}#player_table {
+  width: 900px;
+  table-layout: fixed;
+  font-size: 16px !important;
+}
+
+.table_wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#player_table th:nth-child(1),
+#player_table td:nth-child(1) {
+  width: 140px;
+  white-space: nowrap;
+}
+
+#player_table th:nth-child(4),
+#player_table td:nth-child(4) {
+  width: 110px;
+  white-space: nowrap;
+}
+
+#player_table th:nth-child(3),
+#player_table td:nth-child(3) {
+  width: 60px;
+}
+
+#player_table th:nth-child(5),
+#player_table td:nth-child(5),
+#player_table th:nth-child(6),
+#player_table td:nth-child(6) {
+  width: 70px;
+}
+
+#player_table th:last-child,
+#player_table td:last-child {
+  width: 300px;
+  white-space: normal;
 }
 </style>
 </head>
