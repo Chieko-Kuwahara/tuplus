@@ -207,7 +207,6 @@ function loadMatches(year) {
 
         const cols = row.split(",");
 
-       const hasScore = cols[6].trim() !== "" && cols[7].trim() !== "";
 
 const hasScore = cols[6].trim() !== "" && cols[7].trim() !== "";
 
@@ -237,7 +236,23 @@ if (hasScore) {
           <td class="score">
             <span class="team">${cols[5]}</span>
             <span class="goal ${cls}">
-              ${result} ${scored}-${conceded}
+              let scoreHTML = "";
+
+if (hasScore) {
+  const scored = Number(cols[6]);
+  const conceded = Number(cols[7]);
+
+  let result = "";
+  let cls = "";
+
+  if (scored > conceded) { result = "○"; cls = "win"; }
+  else if (scored < conceded) { result = "●"; cls = "lose"; }
+  else { result = "△"; cls = "draw"; }
+
+  scoreHTML = `<span class="goal ${cls}">${result} ${scored}-${conceded}</span>`;
+} else {
+  scoreHTML = `<span class="goal">VS</span>`;
+}
             </span>
           </td>
         `;
