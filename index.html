@@ -21,9 +21,15 @@
 .goal.draw { color: green; font-weight: bold; }
 
 #result_table {
- 
+ /* テーブルそのものは普通に戻す */
+#result_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* スクロール用ラッパーを追加 */
+.result_wrap {
   overflow-x: auto;
-  white-space: nowrap;
 }
 
 .table_wrap {
