@@ -207,8 +207,10 @@ function loadMatches(year) {
 
         const cols = row.split(",");
 
-        const scored = Number(cols[6]);
-        const conceded = Number(cols[7]);
+       const hasScore = cols[6].trim() !== "" && cols[7].trim() !== "";
+
+const scored = hasScore ? Number(cols[6]) : null;
+const conceded = hasScore ? Number(cols[7]) : null;
 
       let result = "";
 let cls = "";
