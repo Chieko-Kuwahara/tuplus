@@ -517,25 +517,29 @@ fetch("players.csv")
   });
 });
 
-// タブ
-document.getElementById("tab_match").onclick = () => {
+// ===== タブ切替 =====
+const tabMatch = document.getElementById("tab_match");
+const tabPlayer = document.getElementById("tab_player");
+
+tabMatch.onclick = (e) => {
+  e.preventDefault();
+
   document.getElementById("match_section").style.display = "block";
   document.getElementById("player_section").style.display = "none";
+
+  tabMatch.classList.add("active");
+  tabPlayer.classList.remove("active");
 };
 
-document.getElementById("tab_player").onclick = () => {
+tabPlayer.onclick = (e) => {
+  e.preventDefault();
+
   document.getElementById("match_section").style.display = "none";
   document.getElementById("player_section").style.display = "block";
-};
 
-// 年切替
-document.querySelectorAll(".season button").forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll(".season button").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    loadMatches(btn.dataset.year);
-  };
-});
+  tabPlayer.classList.add("active");
+  tabMatch.classList.remove("active");
+};
 
 // 初期表示
 loadMatches("2026");
