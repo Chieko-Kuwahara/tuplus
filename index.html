@@ -127,7 +127,8 @@
 
 /* 列ごとの幅 */
 #result_table .sec {
-  width: 60px;
+  width: auto;
+}
   text-align: center;
 }
 
@@ -213,6 +214,10 @@
     width: 40px;
     font-size: 12px;
   }
+}#player_table th:nth-child(1),
+#player_table td:nth-child(1) {
+  width: 180px;       /* 好きな幅に調整OK（160〜220くらい） */
+  white-space: nowrap; /* 名前を1行固定 */
 }
 </style>
 </head>
