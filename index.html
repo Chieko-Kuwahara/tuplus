@@ -218,6 +218,54 @@
     white-space: normal;
   }
 }
+@media (max-width: 768px) {
+
+  /* 行全体を縦に積む */
+  #result_table tr {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  #result_table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* 試合情報を折り返す */
+  .match_info {
+    display: block;
+  }
+
+  .match_date {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .label {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  /* ★ 会場名を折り返し */
+  .match_stadium {
+    display: block;
+    white-space: normal;   /* ←これが一番重要 */
+    margin-top: 4px;
+  }
+
+  /* チーム名 */
+  .team_name {
+    margin-top: 6px;
+    font-weight: bold;
+  }
+
+  /* スコア */
+  .score {
+    margin-top: 6px;
+    text-align: right;
+  }
+}
 </style>
 </head>
 
