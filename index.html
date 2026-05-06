@@ -188,6 +188,21 @@
     width: 40%;
   }
 }
+.match_info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 日時は固定幅にする */
+.match_date {
+  width: 170px;
+}
+
+/* スタジアムは伸びる */
+.match_stadium {
+  flex: 1;
+}
 </style>
 </head>
 
@@ -327,11 +342,11 @@ function loadMatches(year) {
         div.innerHTML = `
           <div class="match_sec">${cols[0]}</div>
 
-          <div class="match_info">
-            ${cols[1]} ${cols[2]}
-            <span class="label ${cols[3].toLowerCase()}">${cols[3]}</span>
-            ${cols[4]}
-          </div>
+<div class="match_info">
+  <span class="match_date">${cols[1]} ${cols[2]}</span>
+  <span class="label ${cols[3].toLowerCase()}">${cols[3]}</span>
+  <span class="match_stadium">${cols[4]}</span>
+</div>
 
           <div class="match_vs">${cols[5]}</div>
 
