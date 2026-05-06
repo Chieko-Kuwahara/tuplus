@@ -395,6 +395,7 @@ const leagueMap = {
 document.getElementById("season_title").textContent =
  year + " " + (leagueMap[year] || "東京都社会人サッカーリーグ");
 
+  });
 }// ===== 選手CSV =====
 fetch("players.csv")
 .then(res => res.text())
