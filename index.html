@@ -120,6 +120,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+ flex: 0 0 420px;
 }
 
 .match_date {
@@ -151,10 +152,10 @@
 }
 
 .match_vs {
-  width: 30%;
+  flex: 1;         /* ←ここ変更 */
+  min-width: 0;
   font-weight: bold;
 }
-
 .match_score {
   width: 120px;
   text-align: right;
