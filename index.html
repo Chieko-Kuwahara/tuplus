@@ -203,6 +203,11 @@
 .match_stadium {
   flex: 1;
 }
+.match_date {
+  width: 180px;
+  min-width: 180px;
+  white-space: nowrap;
+}
 </style>
 </head>
 
@@ -317,6 +322,10 @@ function loadMatches(year) {
         if (!row.trim()) return;
 
         const cols = row.split(",");
+const date = (cols[1] || "").trim();
+const time = (cols[2] || "").trim();
+const homeaway = (cols[3] || "").trim().toLowerCase();
+const stadium = (cols[4] || "").trim();
 
         const hasScore = cols[6] && cols[7] && cols[6].trim() !== "" && cols[7].trim() !== "";
 
@@ -343,11 +352,10 @@ function loadMatches(year) {
           <div class="match_sec">${cols[0]}</div>
 
 <div class="match_info">
-  <span class="match_date">${cols[1]} ${cols[2]}</span>
-  <span class="label ${cols[3].toLowerCase()}">${cols[3]}</span>
-  <span class="match_stadium">${cols[4]}</span>
+  <span class="match_date">${date} ${time}</span>
+  <span class="label ${homeaway}">${cols[3].trim()}</span>
+  <span class="match_stadium">${stadium}</span>
 </div>
-
           <div class="match_vs">${cols[5]}</div>
 
           <div class="match_score ${cls}">
