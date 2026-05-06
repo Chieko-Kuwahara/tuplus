@@ -185,33 +185,33 @@
 
   /* 上段 */
   .match_info {
-    width: calc(100% - 30px);
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
+  width: calc(100% - 30px);
+  display: flex;
+  align-items: center;   /* ←縦位置も揃える */
+  gap: 6px;
+  flex-wrap: nowrap;     /* ←これが最重要（折り返さない） */
+}
 
-  /* 日時 */
-  .match_date {
-    width: 120px;
-    min-width: 95px;
-    line-height: 1.2;
-  }
+/* 日時（そのまま120px） */
+.match_date {
+  width: 120px;
+  min-width: 120px;
+  white-space: nowrap;
+}
 
-  /* HOME/AWAY */
-  .label {
-    flex-shrink: 0;
-    font-size: 11px;
-    padding: 2px 6px;
-  }
+/* HOME/AWAY（潰れ防止） */
+.label {
+  flex-shrink: 0;        /* ←これ超重要 */
+  font-size: 11px;
+  padding: 2px 6px;
+}
 
-  /* 会場 */
-  .match_stadium {
-    width: 100%;
-    white-space: normal;
-    font-size: 12px;
-  }
+/* 会場（残り全部使う） */
+.match_stadium {
+  flex: 1;               /* ←残りスペースを全部使う */
+  white-space: normal;
+  font-size: 12px;
+}
 
   /* 下段 */
   .match_vs {
