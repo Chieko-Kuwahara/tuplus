@@ -382,15 +382,20 @@ if (hasScore) {
             ${scoreText}
           </div>
         `;
+container.appendChild(div);
+});
 
-        container.appendChild(div);
-      });
+// ★ここに入れる
+const leagueMap = {
+  "2026": "東京都社会人サッカーリーグ2部",
+  "2025": "東京都社会人サッカーリーグ1部",
+  "2024": "東京都社会人サッカーリーグ1部"
+};
 
-      document.getElementById("season_title").textContent =
-        year + " 東京都社会人サッカーリーグ2部";
-    });
-}
-// ===== 選手CSV =====
+document.getElementById("season_title").textContent =
+ year + " " + (leagueMap[year] || "東京都社会人サッカーリーグ");
+
+}// ===== 選手CSV =====
 fetch("players.csv")
 .then(res => res.text())
 .then(text => {
