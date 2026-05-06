@@ -268,15 +268,6 @@
 <h2 id="season_title" class="m-title02">東京都社会人サッカーリーグ2部</h2>
 
 <div id="result_table"></div>
-<thead>
-<tr>
-<th class="sec">節</th>
-<th class="info">日時・会場</th>
-<th class="score">対戦・スコア</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
 </section>
 <div class="season" id="season_tabs">
   <button data-year="2026">2026年</button>
@@ -361,7 +352,13 @@ if (hasScore) {
   else if (scored < conceded) { result = "●"; cls = "lose"; }
   else { result = "△"; cls = "draw"; }
 }
+let scoreText = "";
 
+if (hasScore) {
+  scoreText = `${scored}-${conceded}`;
+} else {
+  scoreText = "VS";
+}
         const div = document.createElement("div");
 
         div.className = "match_row";
