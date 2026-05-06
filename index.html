@@ -336,22 +336,31 @@ const time = (cols[2] || "").trim();
 const homeaway = (cols[3] || "").trim().toLowerCase();
 const stadium = (cols[4] || "").trim();
 
-        const hasScore = cols[6] && cols[7] && cols[6].trim() !== "" && cols[7].trim() !== "";
+       const hasScore = cols[6].trim() !== "" && cols[7].trim() !== "";
 
-        let scored = "";
-        let conceded = "";
-        let cls = "";
-        let scoreText = "VS";
+let scored = null;
+let conceded = null;
+let result = "";
+let cls = "";
 
-        if (hasScore) {
-          scored = Number(cols[6]);
-          conceded = Number(cols[7]);
-          scoreText = `${scored}-${conceded}`;
+if (hasScore) {
+  let gf = Number(cols[6]); // CSVの得点
+  let ga = Number(cols[7]); // CSVの失点
 
-          if (scored > conceded) cls = "win";
-          else if (scored < conceded) cls = "lose";
-          else cls = "draw";
-        }
+  // ★ HOME/AWAYで表示を調整
+  if (cols[3].trim() === "HOME") {
+    scored = gf;
+    conceded = ga;
+  } else {
+    scored = ga;
+    conceded = gf;
+  }
+
+  // 勝敗判定
+  if (scored > conceded) { result = "○"; cls = "win"; }
+  else if (scored < conceded) { result = "●"; cls = "lose"; }
+  else { result = "△"; cls = "draw"; }
+}
 
         const div = document.createElement("div");
 
