@@ -109,43 +109,50 @@
 }
 
 /* 節 */
+<style>
+
+（他のCSS）
+
+<style>
+
+（他のCSS）
+
+/* ===== PC表示（ここに入れる） ===== */
 .match_sec {
   width: 50px;
   text-align: center;
   font-weight: bold;
 }
 
-/* 日時・会場 */
 .match_info {
-  width: 45%;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* HOME / AWAY */
+.match_date {
+  width: 180px;
+  min-width: 180px;
+  white-space: nowrap;
+}
+
 .label {
-  display: inline-block;
+  flex-shrink: 0;
   padding: 3px 8px;
   font-size: 12px;
   color: #fff;
   border-radius: 3px;
-  margin: 0 8px;
 }
 
-.label.home {
-  background: #c4002f;
+.match_stadium {
+  flex: 1;
 }
 
-.label.away {
-  background: #777;
-}
-
-/* 対戦 */
 .match_vs {
   width: 30%;
   font-weight: bold;
 }
 
-/* スコア */
 .match_score {
   width: 120px;
   text-align: right;
@@ -153,23 +160,7 @@
   font-weight: bold;
 }
 
-/* 勝敗マーク */
-.match_score.win::before {
-  content: "○ ";
-  color: #0066cc;
-}
-
-.match_score.lose::before {
-  content: "● ";
-  color: #000;
-}
-
-.match_score.draw::before {
-  content: "△ ";
-  color: green;
-}
-
-/* スマホ対応 */
+/* ===== スマホ表示 ===== */
 @media (max-width: 768px) {
 
   .match_row {
@@ -184,38 +175,37 @@
   }
 
   /* 上段 */
- .match_info {
-  width: calc(100% - 30px);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: nowrap !important; /* ←強制で折り返し禁止 */
-}
+  .match_info {
+    width: calc(100% - 30px);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap; /* ←絶対これ */
+  }
 
-/* 日時 */
-.match_date {
-  width: 120px;
-  min-width: 120px;
-  max-width: 120px;
-  white-space: nowrap;
-  flex-shrink: 0; /* ←これ超重要 */
-}
+  /* 日時 */
+  .match_date {
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 
-/* HOME/AWAY */
-.label {
-  flex-shrink: 0;
-  font-size: 11px;
-  padding: 2px 6px;
-  margin-left: 4px; /* 少し離す */
-}
+  /* HOME/AWAY */
+  .label {
+    flex-shrink: 0;
+    font-size: 11px;
+    padding: 2px 6px;
+  }
 
-/* 会場 */
-.match_stadium {
-  flex: 1;
-  min-width: 0; /* ←これがないと重なることあり */
-  white-space: normal;
-  font-size: 12px;
-}
+  /* 会場 */
+  .match_stadium {
+    flex: 1;
+    min-width: 0;
+    white-space: normal;
+    font-size: 12px;
+  }
 
   /* 下段 */
   .match_vs {
