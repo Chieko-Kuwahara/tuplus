@@ -184,31 +184,35 @@
   }
 
   /* 上段 */
-  .match_info {
+ .match_info {
   width: calc(100% - 30px);
   display: flex;
-  align-items: center;   /* ←縦位置も揃える */
+  align-items: center;
   gap: 6px;
-  flex-wrap: nowrap;     /* ←これが最重要（折り返さない） */
+  flex-wrap: nowrap !important; /* ←強制で折り返し禁止 */
 }
 
-/* 日時（そのまま120px） */
+/* 日時 */
 .match_date {
   width: 120px;
   min-width: 120px;
+  max-width: 120px;
   white-space: nowrap;
+  flex-shrink: 0; /* ←これ超重要 */
 }
 
-/* HOME/AWAY（潰れ防止） */
+/* HOME/AWAY */
 .label {
-  flex-shrink: 0;        /* ←これ超重要 */
+  flex-shrink: 0;
   font-size: 11px;
   padding: 2px 6px;
+  margin-left: 4px; /* 少し離す */
 }
 
-/* 会場（残り全部使う） */
+/* 会場 */
 .match_stadium {
-  flex: 1;               /* ←残りスペースを全部使う */
+  flex: 1;
+  min-width: 0; /* ←これがないと重なることあり */
   white-space: normal;
   font-size: 12px;
 }
