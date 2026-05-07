@@ -7,118 +7,15 @@
 <title>東京ユナイテッドFCプラス</title>
 
 <link rel="stylesheet" href="https://use.typekit.net/wcn1pnu.css">
-<link rel="stylesheet" href="https://tokyo-united-fc.jp/common/css/slick.css">
-<link rel="stylesheet" href="https://tokyo-united-fc.jp/common/css/style.css">
-<link rel="stylesheet" href="https://tokyo-united-fc.jp/tuplus/css/style.css">
 
 <style>
 #main_visual .visual {
   background-image: url(https://tokyo-united-fc.s3.ap-northeast-1.amazonaws.com/image/banner/16912_1477x1108_67c254fb6cad0.jpg);
+  height: 300px;
+  background-size: cover;
 }
 
-/* =====================
-   勝敗カラー
-===================== */
-.match_score.win { color: blue; font-weight: bold; }
-.match_score.lose { color: black; font-weight: bold; }
-.match_score.draw { color: green; font-weight: bold; }
-
-/* =====================
-   レイアウト（PC）
-===================== */
-#result_table {
-  display: block;
-}
-
-.match_row {
-  display: flex;
-  align-items: center;
-  padding: 18px 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.match_row:nth-child(even) {
-  background: #f5f5f5;
-}
-
-.match_sec {
-  width: 50px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.match_info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 0 0 520px;
-}
-
-.match_date {
-  width: 180px;
-  white-space: nowrap;
-}
-
-.label {
-  padding: 3px 8px;
-  font-size: 12px;
-  color: #fff;
-  border-radius: 3px;
-}
-
-.label.home { background: #c4002f; }
-.label.away { background: #777; }
-
-.match_stadium {
-  flex: 1;
-}
-
-.match_vs {
-  flex: 1;
-  font-weight: bold;
-}
-
-.match_score {
-  width: 120px;
-  text-align: right;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-/* =====================
-   スマホ
-===================== */
-@media (max-width: 768px) {
-
-.match_row {
-  flex-wrap: wrap;
-  padding: 12px 8px;
-}
-
-.match_sec {
-  width: 30px;
-}
-
-.match_info {
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-.match_date {
-  width: 120px;
-}
-
-.match_score {
-  width: 100%;
-  text-align: right;
-  font-size: 18px;
-  margin-top: 6px;
-}
-}
-
-/* =====================
-   タブ
-===================== */
+/* ===== タブ ===== */
 .m-submenu a.active {
   background: #007bff;
   color: #fff;
@@ -126,229 +23,252 @@
   border-radius: 5px;
 }
 
-/* 表示制御 */
-section { display: none; }
-section.active { display: block; }
+/* ===== 試合 ===== */
+.match_row {
+  display:flex;
+  padding:12px;
+  border-bottom:1px solid #ddd;
+}
+
+.match_sec { width:50px; }
+.match_date { width:180px; }
+.label.home { background:#c4002f; color:#fff; padding:2px 6px; }
+.label.away { background:#777; color:#fff; padding:2px 6px; }
+
+.match_score.win { color:blue; font-weight:bold; }
+.match_score.lose { color:black; font-weight:bold; }
+.match_score.draw { color:green; font-weight:bold; }
+
+.match_score {
+  margin-left:auto;
+  font-size:18px;
+}
+
+/* ===== セクション ===== */
+section { margin-top:20px; }
+
+/* ===== テーブル ===== */
+table { width:100%; border-collapse:collapse; }
+td,th { border:1px solid #ccc; padding:8px; }
+
+/* ===== 非表示制御 ===== */
+.hidden { display:none; }
 
 .season button.active {
-  background: #007bff;
-  color: #fff;
+  background:#007bff;
+  color:#fff;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="inner">
-<div class="title">
-<a href="/">
-<h1 class="logo">
-<img src="https://tokyo-united-fc.jp/common/img/logo_tufc.svg">
-</h1>
-<strong>TOKYO UNITED FC</strong>Official Website
-</a>
-</div>
-</div>
-</header>
-
+<!-- ヘッダー画像 -->
 <div id="main_visual">
-<div class="visual">
-<div class="title">
-<div class="ja">東京ユナイテッドFCプラス</div>
-<div class="en">TOKYO UNITED FC PLUS</div>
-</div>
-</div>
+  <div class="visual"></div>
 </div>
 
 <!-- タブ -->
-<div class="m-submenu team">
-<ul>
-<li><a href="#" id="tab_match" class="active">試合一覧</a></li>
-<li><a href="#" id="tab_player">選手・スタッフ</a></li>
-<li><a href="#" id="tab_news">ニュース</a></li>
-</ul>
+<div class="m-submenu">
+  <a href="#" id="tab_match" class="active">試合</a>
+  <a href="#" id="tab_player">選手</a>
+  <a href="#" id="tab_news">ニュース</a>
 </div>
 
 <!-- 試合 -->
-<section id="match_section" class="active">
-<h2 id="season_title"></h2>
-<div id="result_table"></div>
+<section id="match_section">
+  <h2 id="season_title"></h2>
+  <div id="result_table"></div>
+</section>
 
 <div class="season">
   <button data-year="2026">2026</button>
   <button data-year="2025">2025</button>
   <button data-year="2024">2024</button>
 </div>
-</section>
 
 <!-- 選手 -->
-<section id="player_section">
-<h2>選手・スタッフ</h2>
-<div id="player_table"></div>
+<section id="player_section" class="hidden">
+  <table>
+    <thead>
+      <tr>
+        <th>名前</th><th>POS</th><th>背番号</th><th>生年月日</th><th>身長</th><th>体重</th><th>前所属</th>
+      </tr>
+    </thead>
+    <tbody id="player_body"></tbody>
+  </table>
 </section>
 
 <!-- ニュース -->
-<section id="news_section">
-<h2>ニュース</h2>
-<div id="news_list"></div>
+<section id="news_section" class="hidden">
+  <div id="news_list"></div>
 </section>
 
 <script>
-/* =====================
-   リーグ名
-===================== */
 const leagueMap = {
-  "2026": "東京都社会人サッカーリーグ2部",
-  "2025": "東京都社会人サッカーリーグ1部",
-  "2024": "東京都社会人サッカーリーグ1部"
+  "2026":"東京都社会人サッカーリーグ2部",
+  "2025":"東京都社会人サッカーリーグ1部",
+  "2024":"東京都社会人サッカーリーグ1部"
 };
 
-/* =====================
+/* =========================
    試合読み込み
-===================== */
-function loadMatches(year) {
+========================= */
+function loadMatches(year){
+  fetch(`matches_${year}.csv?v=`+Date.now())
+  .then(r=>r.text())
+  .then(text=>{
 
-  document.getElementById("season_title").textContent = leagueMap[year];
+    const rows = text.split(/\r?\n/).slice(1);
+    const container = document.getElementById("result_table");
+    container.innerHTML="";
 
-  fetch(`matches_${year}.csv?v=` + Date.now())
-    .then(res => res.text())
-    .then(text => {
+    document.getElementById("season_title").innerText =
+      leagueMap[year] || "";
 
-      const rows = text.split(/\r?\n/).slice(1);
-      const container = document.getElementById("result_table");
-      container.innerHTML = "";
+    rows.forEach(row=>{
+      if(!row.trim()) return;
 
-      rows.forEach(row => {
-        if (!row.trim()) return;
+      const cols = row.split(",");
 
-        const cols = row.split(",");
+      const date = cols[1]||"";
+      const time = cols[2]||"";
+      const homeaway = (cols[3]||"").trim();
+      const stadium = cols[4]||"";
+      const vs = cols[5]||"";
 
-        const date = cols[1] || "";
-        const time = cols[2] || "";
-        const homeaway = (cols[3] || "").toUpperCase();
-        const stadium = cols[4] || "";
-        const opponent = cols[5] || "";
+      const gf = Number(cols[6]||0);
+      const ga = Number(cols[7]||0);
+      const hasScore = cols[6] !== "" && cols[7] !== "";
 
-        const hasScore = cols[6] !== "" && cols[7] !== "";
+      let scored = 0;
+      let conceded = 0;
+      let result = "";
+      let cls = "";
+      let scoreText = "";
 
-        let scored = 0;
-        let conceded = 0;
-        let result = "";
-        let cls = "";
+      if(hasScore){
+        // ★ 反転なし（GF=得点 GA=失点）
+        scored = gf;
+        conceded = ga;
 
-        if (hasScore) {
-          const gf = Number(cols[6]);
-          const ga = Number(cols[7]);
+        if(scored > conceded){ result="○"; cls="win"; }
+        else if(scored < conceded){ result="●"; cls="lose"; }
+        else { result="△"; cls="draw"; }
 
-          if (homeaway === "HOME") {
-            scored = gf;
-            conceded = ga;
-          } else {
-            scored = ga;
-            conceded = gf;
-          }
+        scoreText = `${result} ${scored}-${conceded}`;
+      } else {
+        scoreText = "VS";
+      }
 
-          if (scored > conceded) { result = "○"; cls = "win"; }
-          else if (scored < conceded) { result = "●"; cls = "lose"; }
-          else { result = "△"; cls = "draw"; }
-        }
+      const div = document.createElement("div");
+      div.className="match_row";
 
-        const scoreText = hasScore ? `${result} ${scored}-${conceded}` : "VS";
+      div.innerHTML=`
+        <div class="match_sec">${cols[0]}</div>
+        <div class="match_date">${date} ${time}</div>
+        <div class="label ${homeaway==="HOME"?"home":"away"}">${homeaway}</div>
+        <div style="flex:1">${stadium}</div>
+        <div style="flex:1">${vs}</div>
+        <div class="match_score ${cls}">${scoreText}</div>
+      `;
 
-        const div = document.createElement("div");
-        div.className = "match_row";
-
-        div.innerHTML = `
-          <div class="match_sec">${cols[0]}</div>
-          <div class="match_info">
-            <span class="match_date">${date} ${time}</span>
-            <span class="label ${homeaway.toLowerCase()}">${homeaway}</span>
-            <span class="match_stadium">${stadium}</span>
-          </div>
-          <div class="match_vs">${opponent}</div>
-          <div class="match_score ${cls}">
-            ${scoreText}
-          </div>
-        `;
-
-        container.appendChild(div);
-      });
+      container.appendChild(div);
     });
+
+  });
 }
 
-/* =====================
+/* =========================
    選手
-===================== */
-function loadPlayers() {
-  fetch("players.csv?v=" + Date.now())
-    .then(r => r.text())
-    .then(t => {
-      const rows = t.split(/\r?\n/).slice(1);
-      const c = document.getElementById("player_table");
-      c.innerHTML = rows.map(r => {
-        if (!r) return "";
-        const x = r.split(",");
-        return `<div>${x[0]} / ${x[1]} / ${x[2]}</div>`;
-      }).join("");
+========================= */
+function loadPlayers(){
+  fetch("players.csv?v="+Date.now())
+  .then(r=>r.text())
+  .then(text=>{
+    const rows=text.split(/\r?\n/).slice(1);
+    const body=document.getElementById("player_body");
+    body.innerHTML="";
+
+    rows.forEach(r=>{
+      if(!r.trim()) return;
+      const c=r.split(",");
+
+      const tr=document.createElement("tr");
+      tr.innerHTML=`
+        <td>${c[0]}</td>
+        <td>${c[1]}</td>
+        <td>${c[2]}</td>
+        <td>${c[3]}</td>
+        <td>${c[4]}</td>
+        <td>${c[5]}</td>
+        <td>${c[6]}</td>
+      `;
+      body.appendChild(tr);
     });
+  });
 }
 
-/* =====================
+/* =========================
    ニュース
-===================== */
-function loadNews() {
-  fetch("news.csv?v=" + Date.now())
-    .then(r => r.text())
-    .then(t => {
-      const rows = t.split(/\r?\n/).slice(1);
-      const c = document.getElementById("news_list");
-      c.innerHTML = rows.map(r => {
-        if (!r) return "";
-        const x = r.split(",");
-        return `<div>${x[0]} ${x[1]}</div>`;
-      }).join("");
+========================= */
+function loadNews(){
+  fetch("news.csv?v="+Date.now())
+  .then(r=>r.text())
+  .then(text=>{
+    const rows=text.split(/\r?\n/).slice(1);
+    const list=document.getElementById("news_list");
+    list.innerHTML="";
+
+    rows.forEach(r=>{
+      if(!r.trim()) return;
+      const c=r.split(",");
+
+      const div=document.createElement("div");
+      div.className="news_item";
+      div.innerHTML=`
+        <div>${c[0]}</div>
+        <div><a href="${c[2]}">${c[1]}</a></div>
+      `;
+      list.appendChild(div);
     });
+  });
 }
 
-/* =====================
-   タブ切替
-===================== */
-function showTab(tab) {
-  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-  document.getElementById(tab + "_section").classList.add("active");
+/* =========================
+   タブ制御
+========================= */
+function show(tab){
+  document.getElementById("match_section").classList.add("hidden");
+  document.getElementById("player_section").classList.add("hidden");
+  document.getElementById("news_section").classList.add("hidden");
+
+  if(tab==="match") document.getElementById("match_section").classList.remove("hidden");
+  if(tab==="player") document.getElementById("player_section").classList.remove("hidden");
+  if(tab==="news") document.getElementById("news_section").classList.remove("hidden");
 }
 
-/* =====================
+/* =========================
    イベント
-===================== */
-document.getElementById("tab_match").onclick = e => {
-  e.preventDefault();
-  showTab("match");
-};
-
-document.getElementById("tab_player").onclick = e => {
-  e.preventDefault();
-  showTab("player");
+========================= */
+document.getElementById("tab_match").onclick=()=>show("match");
+document.getElementById("tab_player").onclick=()=>{
+  show("player");
   loadPlayers();
 };
-
-document.getElementById("tab_news").onclick = e => {
-  e.preventDefault();
-  showTab("news");
+document.getElementById("tab_news").onclick=()=>{
+  show("news");
   loadNews();
 };
 
-document.querySelectorAll(".season button").forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll(".season button").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
+document.querySelectorAll(".season button").forEach(btn=>{
+  btn.onclick=()=>{
     loadMatches(btn.dataset.year);
   };
 });
 
 /* 初期表示 */
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded",()=>{
   loadMatches("2026");
 });
 </script>
