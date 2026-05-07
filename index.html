@@ -343,10 +343,7 @@ function loadMatches(year) {
           else { result = "△"; cls = "draw"; }
         }
 
-       let result = "";
-let cls = "";
-let scoreText = "";
-
+    
 if (hasScore) {
   if (scored > conceded) { result = "○"; cls = "win"; }
   else if (scored < conceded) { result = "●"; cls = "lose"; }
