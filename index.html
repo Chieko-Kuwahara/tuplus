@@ -316,13 +316,14 @@ function loadMatches(year) {
 
         const date = (cols[1] || "").trim();
         const time = (cols[2] || "").trim();
-       const homeawayRaw = (cols[3] || "").trim().toUpperCase();
+      const homeawayRaw = (cols[3] || "").trim().toUpperCase();
 const isHome = homeawayRaw === "HOME";
+const homeawayClass = isHome ? "home" : "away";
 
 const gf = Number(cols[6] || 0);
 const ga = Number(cols[7] || 0);
 
-const hasScore = cols[6] && cols[7];
+const hasScore = cols[6] !== "" && cols[7] !== "";
 
 let scored = 0;
 let conceded = 0;
@@ -363,7 +364,7 @@ if (hasScore) {
           <div class="match_sec">${cols[0]}</div>
           <div class="match_info">
             <span class="match_date">${date} ${time}</span>
-            <span class="label ${homeaway}">${cols[3].trim()}</span>
+            <span class="label ${homeawayClass}">${cols[3].trim()}</span>
             <span class="match_stadium">${stadium}</span>
           </div>
           <div class="match_vs">${cols[5]}</div>
