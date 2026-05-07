@@ -324,30 +324,33 @@ function loadMatches(year) {
         let scored = null;
         let conceded = null;
         let result = "";
-        let cls = "";
+let cls = "";
+let scoreText = "";
 
-        if (hasScore) {
-          let gf = Number(cols[6]);
-          let ga = Number(cols[7]);
+const homeaway = (cols[3] || "").trim().toUpperCase();
 
-          if (cols[3].trim() === "HOME") {
-            scored = gf;
-            conceded = ga;
-          } else {
-            scored = ga;
-            conceded = gf;
-          }
-
-          if (scored > conceded) { result = "○"; cls = "win"; }
-          else if (scored < conceded) { result = "●"; cls = "lose"; }
-          else { result = "△"; cls = "draw"; }
-        }
-
-    
 if (hasScore) {
-  if (scored > conceded) { result = "○"; cls = "win"; }
-  else if (scored < conceded) { result = "●"; cls = "lose"; }
-  else { result = "△"; cls = "draw"; }
+  const gf = Number(cols[6]);
+  const ga = Number(cols[7]);
+
+  if (homeaway === "HOME") {
+    scored = gf;
+    conceded = ga;
+  } else {
+    scored = ga;
+    conceded = gf;
+  }
+
+  if (scored > conceded) {
+    result = "○";
+    cls = "win";
+  } else if (scored < conceded) {
+    result = "●";
+    cls = "lose";
+  } else {
+    result = "△";
+    cls = "draw";
+  }
 
   scoreText = `${result} ${scored}-${conceded}`;
 } else {
