@@ -71,7 +71,55 @@ section { margin-top:20px; }
 /* ===== テーブル ===== */
 table { width:100%; border-collapse:collapse; }
 td,th { border:1px solid #ccc; padding:8px; }
+/* ===== 選手テーブル調整 ===== */
 
+#player_section table {
+  table-layout: fixed;
+}
+
+/* 名前 */
+#player_section th:nth-child(1),
+#player_section td:nth-child(1){
+  width:160px;
+  white-space: nowrap;
+}
+
+/* ポジション */
+#player_section th:nth-child(2),
+#player_section td:nth-child(2){
+  width:60px;
+  text-align:center;
+}
+
+/* 背番号 */
+#player_section th:nth-child(3),
+#player_section td:nth-child(3){
+  width:70px;
+  text-align:center;
+}
+
+/* 生年月日 */
+#player_section th:nth-child(4),
+#player_section td:nth-child(4){
+  width:120px;
+  text-align:center;
+}
+
+/* 身長・体重 */
+#player_section th:nth-child(5),
+#player_section td:nth-child(5),
+#player_section th:nth-child(6),
+#player_section td:nth-child(6){
+  width:70px;
+  text-align:center;
+}
+
+/* 前所属 */
+#player_section th:nth-child(7),
+#player_section td:nth-child(7){
+  width:auto;
+  white-space: normal;
+}
 /* ===== 非表示制御 ===== */
 .hidden { display:none; }
 
