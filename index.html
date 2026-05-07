@@ -317,9 +317,10 @@ function loadMatches(year) {
         const date = (cols[1] || "").trim();
         const time = (cols[2] || "").trim();
        const homeawayRaw = (cols[3] || "").trim().toUpperCase();
-const homeaway = (homeawayRaw === "HOME") ? "home" : "away";
-        const stadium = (cols[4] || "").trim();
+const isHome = homeawayRaw === "HOME";
 
+const hasScore = cols[6] && cols[6].trim() !== "" &&
+                 cols[7] && cols[7].trim() !== "";
 
 let scored = null;
 let conceded = null;
@@ -331,7 +332,7 @@ if (hasScore) {
   const gf = Number(cols[6]);
   const ga = Number(cols[7]);
 
-  if (homeaway === "HOME") {
+  if (isHome) {
     scored = gf;
     conceded = ga;
   } else {
