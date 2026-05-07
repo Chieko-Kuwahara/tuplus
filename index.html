@@ -316,17 +316,16 @@ function loadMatches(year) {
 
         const date = (cols[1] || "").trim();
         const time = (cols[2] || "").trim();
-        const homeaway = (cols[3] || "").trim().toLowerCase();
+       const homeawayRaw = (cols[3] || "").trim().toUpperCase();
+const homeaway = (homeawayRaw === "HOME") ? "home" : "away";
         const stadium = (cols[4] || "").trim();
 
-        const hasScore = cols[6].trim() !== "" && cols[7].trim() !== "";
 
-        let scored = null;
-        let conceded = null;
-        let result = "";
+let scored = null;
+let conceded = null;
+let result = "";
 let cls = "";
 let scoreText = "";
-
 
 if (hasScore) {
   const gf = Number(cols[6]);
@@ -355,7 +354,6 @@ if (hasScore) {
 } else {
   scoreText = "VS";
 }
-
         const div = document.createElement("div");
         div.className = "match_row";
 
