@@ -315,10 +315,13 @@ function loadMatches(year) {
         const cols = row.split(",");
 
         const date = (cols[1] || "").trim();
-        const time = (cols[2] || "").trim();
-      const homeawayRaw = (cols[3] || "").trim().toUpperCase();
+const time = (cols[2] || "").trim();
+
+const homeawayRaw = (cols[3] || "").trim().toUpperCase();
 const isHome = homeawayRaw === "HOME";
 const homeawayClass = isHome ? "home" : "away";
+
+const stadium = (cols[4] || "").trim();
 
 const gf = Number(cols[6] || 0);
 const ga = Number(cols[7] || 0);
@@ -356,22 +359,21 @@ if (hasScore) {
 
 } else {
   scoreText = "VS";
-}
-        const div = document.createElement("div");
+}        const div = document.createElement("div");
         div.className = "match_row";
 
-        div.innerHTML = `
-          <div class="match_sec">${cols[0]}</div>
-          <div class="match_info">
-            <span class="match_date">${date} ${time}</span>
-            <span class="label ${homeawayClass}">${cols[3].trim()}</span>
-            <span class="match_stadium">${stadium}</span>
-          </div>
-          <div class="match_vs">${cols[5]}</div>
-          <div class="match_score ${cls}">
-            ${scoreText}
-          </div>
-        `;
+       div.innerHTML = `
+  <div class="match_sec">${cols[0]}</div>
+  <div class="match_info">
+    <span class="match_date">${date} ${time}</span>
+    <span class="label ${homeawayClass}">${cols[3].trim()}</span>
+    <span class="match_stadium">${stadium}</span>
+  </div>
+  <div class="match_vs">${cols[5]}</div>
+  <div class="match_score ${cls}">
+    ${scoreText}
+  </div>
+`;
 
         container.appendChild(div);
       });
@@ -381,6 +383,5 @@ window.addEventListener("DOMContentLoaded", function () {
   loadMatches("2026");
 });
 </script>
-
 </body>
 </html>
