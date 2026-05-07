@@ -130,6 +130,20 @@ td,th { border:1px solid #ccc; padding:8px; }
 .table_wrap{
   overflow-x:auto;
 }}
+  /* ===== スマホ用 選手テーブル ===== */
+@media (max-width: 768px){
+
+  #player_section table {
+    table-layout: auto;
+    min-width: 900px;
+  }
+
+  #player_section th,
+  #player_section td{
+    white-space: nowrap;
+  }
+
+}
 </style>
 </head>
 
