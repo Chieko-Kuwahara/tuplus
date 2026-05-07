@@ -316,12 +316,11 @@ function loadMatches(year) {
 
         const date = (cols[1] || "").trim();
         const time = (cols[2] || "").trim();
-       const homeawayRaw = (cols[3] || "").trim().toUpperCase();
-const isHome = homeawayRaw === "HOME";
+       const homeaway = (cols[3] || "").trim().toUpperCase();
+const isHome = homeaway === "HOME";
 
-const hasScore = cols[6] && cols[6].trim() !== "" &&
-                 cols[7] && cols[7].trim() !== "";
-
+const gf = Number(cols[6] || 0);
+const ga = Number(cols[7] || 0);
 let scored = null;
 let conceded = null;
 let result = "";
