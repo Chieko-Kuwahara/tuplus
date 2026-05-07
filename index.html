@@ -16,81 +16,17 @@
   background-image: url(https://tokyo-united-fc.s3.ap-northeast-1.amazonaws.com/image/banner/16912_1477x1108_67c254fb6cad0.jpg);
 }
 
-/* 勝敗カラー（★ここ修正済み） */
+/* 勝敗カラー */
 .match_score.win { color: blue; font-weight: bold; }
 .match_score.lose { color: black; font-weight: bold; }
 .match_score.draw { color: green; font-weight: bold; }
 
-/* 試合テーブル横スクロール */
 #result_table {
   display: block;
   overflow-x: auto;
   white-space: nowrap;
 }
 
-/* 選手テーブル */
-.table_wrap {
-  overflow-x: auto;
-}
-
-#player_table {
-  width: 100%;
-  font-size: 16px !important;
-  border-collapse: collapse;
-}
-
-#player_table th,
-#player_table td {
-  border: 1px solid #ccc !important;
-  padding: 10px !important;
-}
-
-#player_table th:nth-child(1),
-#player_table td:nth-child(1) {
-  width: 160px;
-  white-space: nowrap;
-}
-
-#player_table th:last-child,
-#player_table td:last-child {
-  width: 40%;
-  white-space: normal;
-  word-break: keep-all;
-}
-
-#player_table td:not(:first-child):not(:last-child),
-#player_table th:not(:first-child):not(:last-child) {
-  white-space: nowrap;
-}
-
-.m-submenu a.active {
-  background-color: #007bff !important;
-  color: white !important;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-#player_table td:not(:last-child),
-#player_table th:not(:last-child) {
-  text-align: center !important;
-}
-
-.season {
-  margin-top: 20px;
-}
-.season button {
-  padding: 5px 12px;
-  margin-right: 5px;
-  border: 1px solid #ccc;
-  background: #f5f5f5;
-  cursor: pointer;
-}
-.season button.active {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* 試合一覧 */
 .match_row {
   display: flex;
   align-items: center;
@@ -98,15 +34,7 @@
   border-bottom: 1px solid #ddd;
 }
 
-.match_row:nth-child(even) {
-  background: #f5f5f5;
-}
-
-.match_sec {
-  width: 50px;
-  text-align: center;
-  font-weight: bold;
-}
+.match_sec { width: 50px; text-align: center; font-weight: bold; }
 
 .match_info {
   display: flex;
@@ -122,27 +50,17 @@
 }
 
 .label {
-  flex-shrink: 0;
   display: inline-block;
   padding: 3px 8px;
   font-size: 12px;
   color: #fff;
   border-radius: 3px;
-  margin: 0 6px;
 }
 
 .label.home { background: #c4002f; }
 .label.away { background: #777; }
 
-.match_stadium {
-  flex: 1;
-}
-
-.match_vs {
-  flex: 1;
-  min-width: 0;
-  font-weight: bold;
-}
+.match_vs { flex: 1; font-weight: bold; }
 
 .match_score {
   width: 120px;
@@ -150,116 +68,13 @@
   font-size: 20px;
   font-weight: bold;
 }
-
-/* スマホ */
-@media (max-width: 768px) {
-  .match_row { flex-wrap: wrap; padding: 12px 8px; }
-
-  .match_sec { width: 30px; font-size: 12px; }
-
-  .match_info {
-    width: calc(100% - 30px);
-    display: flex;
-    gap: 6px;
-    flex-wrap: nowrap;
-  }
-
-  .match_date {
-    width: 120px;
-    min-width: 120px;
-    flex-shrink: 0;
-  }
-
-  .label { font-size: 11px; padding: 2px 6px; }
-
-  .match_stadium {
-    flex: 1;
-    min-width: 0;
-    font-size: 12px;
-  }
-
-  .match_vs {
-    width: 70%;
-    font-size: 14px;
-    margin-top: 6px;
-  }
-
-  .match_score {
-    width: 30%;
-    font-size: 18px;
-    text-align: right;
-    margin-top: 6px;
-  }
-}
-
-/* ニュース */
-.news_item {
-  padding: 16px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.news_date {
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 5px;
-}
-
-.news_title a {
-  color: #222;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.news_title a:hover {
-  text-decoration: underline;
-}
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="inner">
-<div class="title">
-<a href="/">
-<h1 class="logo">
-<img src="https://tokyo-united-fc.jp/common/img/logo_tufc.svg">
-</h1>
-<strong>TOKYO UNITED FC</strong>Official Website
-</a>
-</div>
-</div>
-</header>
-
-<div id="main_visual">
-<div class="visual">
-<div class="title">
-<div class="ja">東京ユナイテッドFCプラス</div>
-<div class="en">TOKYO UNITED FC PLUS</div>
-</div>
-</div>
-</div>
-
-<div class="inner">
-<div id="main">
-
-<div class="main_head team">
-<div class="lead">
-社会人としての成長が「プラスα」の価値をもたらす、という確信をチーム名に込めています。
-</div>
-</div>
-
-<!-- タブ -->
-<div class="m-submenu team">
-<ul>
-<li><h1><a href="#" id="tab_match" class="active">試合一覧</a></h1></li>
-<li><a href="#" id="tab_player">選手・スタッフ</a></li>
-<li><a href="#" id="tab_news">ニュース</a></li>
-</ul>
-</div>
-
 <section id="match_section">
-<h2 id="season_title" class="m-title02">東京都社会人サッカーリーグ2部</h2>
+<h2>東京都社会人サッカーリーグ2部</h2>
 <div id="result_table"></div>
 </section>
 
@@ -268,36 +83,6 @@
   <button data-year="2025">2025年</button>
   <button data-year="2024">2024年</button>
 </div>
-
-<section id="player_section" style="display:none;">
-<h2 class="m-title02">選手・スタッフ</h2>
-<div class="table_wrap">
-<table id="player_table">
-<thead>
-<tr>
-<th>名前</th><th>ポジション</th><th>背番号</th><th>生年月日</th><th>身長</th><th>体重</th><th>前所属</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</section>
-
-<section id="news_section" style="display:none;">
-<h2 class="m-title02">ニュース</h2>
-<div id="news_list"></div>
-</section>
-
-</div>
-</div>
-
-<footer>
-<div class="copyright">
-<div class="inner">© 2026 東京ユナイテッドFC</div>
-</div>
-</footer>
-
-<script src="https://tokyo-united-fc.jp/common/js/jquery-3.6.0.min.js"></script>
 
 <script>
 function loadMatches(year) {
@@ -314,74 +99,74 @@ function loadMatches(year) {
 
         const cols = row.split(",");
 
-        const date = (cols[1] || "").trim();
-const time = (cols[2] || "").trim();
+        const date = cols[1];
+        const time = cols[2];
+        const homeaway = cols[3];
+        const stadium = cols[4];
 
-const homeawayRaw = (cols[3] || "").trim().toUpperCase();
-const isHome = homeawayRaw === "HOME";
-const homeawayClass = isHome ? "home" : "away";
+        const hasScore = cols[6] !== "" && cols[7] !== "";
 
-const stadium = (cols[4] || "").trim();
+        let scored = 0;
+        let conceded = 0;
+        let result = "";
+        let cls = "";
+        let scoreText = "";
 
-const gf = Number(cols[6] || 0);
-const ga = Number(cols[7] || 0);
+        if (hasScore) {
 
-const hasScore = cols[6] !== "" && cols[7] !== "";
+          const gf = Number(cols[6]);
+          const ga = Number(cols[7]);
 
-let scored = 0;
-let conceded = 0;
-let result = "";
-let cls = "";
-let scoreText = "";
+          if (homeaway === "HOME") {
+            scored = gf;
+            conceded = ga;
+          } else {
+            scored = ga;
+            conceded = gf;
+          }
 
-if (hasScore) {
+          if (scored > conceded) {
+            result = "○";
+            cls = "win";
+          } else if (scored < conceded) {
+            result = "●";
+            cls = "lose";
+          } else {
+            result = "△";
+            cls = "draw";
+          }
 
-  if (isHome) {
-    scored = gf;
-    conceded = ga;
-  } else {
-    scored = ga;
-    conceded = gf;
-  }
+          scoreText = `${result} ${scored}-${conceded}`;
 
-  if (scored > conceded) {
-    result = "○";
-    cls = "win";
-  } else if (scored < conceded) {
-    result = "●";
-    cls = "lose";
-  } else {
-    result = "△";
-    cls = "draw";
-  }
+        } else {
+          scoreText = "VS";
+        }
 
-  scoreText = `${result} ${scored}-${conceded}`;
-
-} else {
-  scoreText = "VS";
-}        const div = document.createElement("div");
+        const div = document.createElement("div");
         div.className = "match_row";
 
-       div.innerHTML = `
-  <div class="match_sec">${cols[0]}</div>
-  <div class="match_info">
-    <span class="match_date">${date} ${time}</span>
-    <span class="label ${homeawayClass}">${cols[3].trim()}</span>
-    <span class="match_stadium">${stadium}</span>
-  </div>
-  <div class="match_vs">${cols[5]}</div>
-  <div class="match_score ${cls}">
-    ${scoreText}
-  </div>
-`;
+        div.innerHTML = `
+          <div class="match_sec">${cols[0]}</div>
+          <div class="match_info">
+            <span class="match_date">${date} ${time}</span>
+            <span class="label ${homeaway}">${homeaway}</span>
+            <span class="match_stadium">${stadium}</span>
+          </div>
+          <div class="match_vs">${cols[5]}</div>
+          <div class="match_score ${cls}">
+            ${scoreText}
+          </div>
+        `;
 
         container.appendChild(div);
       });
     });
 }
+
 window.addEventListener("DOMContentLoaded", function () {
   loadMatches("2026");
 });
 </script>
+
 </body>
 </html>
