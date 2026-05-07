@@ -181,6 +181,44 @@ td,th { border:1px solid #ccc; padding:8px; }
     text-align:right;
   }
 }
+  .match_info{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:0 0 420px;
+}
+
+.match_stadium{
+  flex:1;
+}
+
+.match_vs{
+  flex:1;
+  min-width:0;
+  font-weight:bold;
+}
+  @media (max-width:768px){
+
+  .match_row{
+    flex-wrap:wrap;
+  }
+
+  .match_info{
+    width:calc(100% - 40px);
+    flex:unset;
+  }
+
+  .match_vs{
+    width:70%;
+    margin-top:6px;
+  }
+
+  .match_score{
+    width:30%;
+    margin-top:6px;
+    text-align:right;
+  }
+}
 </style>
 </head>
 
