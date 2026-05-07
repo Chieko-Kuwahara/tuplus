@@ -199,25 +199,34 @@ td,th { border:1px solid #ccc; padding:8px; }
 }
   @media (max-width:768px){
 
+ @media (max-width:768px){
+
   .match_row{
+    display:flex;
     flex-wrap:wrap;
+    align-items:flex-start;
   }
 
+  /* 上段 */
   .match_info{
-    width:calc(100% - 40px);
-    flex:unset;
+    width:100%;
+    flex:none;
+    margin-bottom:6px;
   }
 
+  /* 下段左 */
   .match_vs{
     width:70%;
     flex:none;
-    margin-top:6px;
+    font-size:14px;
   }
 
+  /* 下段右 */
   .match_score{
     width:30%;
-    margin-top:6px;
+    flex:none;
     text-align:right;
+    font-size:18px;
   }
 }
 </style>
