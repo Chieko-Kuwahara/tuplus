@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="https://use.typekit.net/wcn1pnu.css">
 
 <style>
+  html, body{
+  overflow-x:hidden;
+}
 #main_visual .visual {
   background-image: url(https://tokyo-united-fc.s3.ap-northeast-1.amazonaws.com/image/banner/16912_1477x1108_67c254fb6cad0.jpg);
   background-size: cover;
@@ -96,7 +99,11 @@
 section { margin-top:20px; }
 
 /* ===== テーブル ===== */
-table { width:100%; border-collapse:collapse; }
+table{
+  width:100%;
+  min-width:700px;
+  border-collapse:collapse;
+}
 td,th { border:1px solid #ccc; padding:8px; }
 /* ===== 選手テーブル調整 ===== */
 
@@ -155,6 +162,7 @@ td,th { border:1px solid #ccc; padding:8px; }
   color:#fff;
 
 .table_wrap{
+  width:100%;
   overflow-x:auto;
 }}
   /* ===== スマホ用 選手テーブル ===== */
