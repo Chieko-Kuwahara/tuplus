@@ -524,7 +524,17 @@ function show(tab){
 /* =========================
    イベント
 ========================= */
-document.getElementById("tab_match").onclick=()=>show("match");
+document.getElementById("tab_match").onclick = () => {
+  show("match");
+  loadMatches("2026");
+
+  document.querySelectorAll(".season button").forEach(btn => {
+    btn.classList.remove("active");
+    if (btn.dataset.year === "2026") {
+      btn.classList.add("active");
+    }
+  });
+};
 document.getElementById("tab_player").onclick=()=>{
   show("player");
   loadPlayers();
