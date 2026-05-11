@@ -1,5 +1,10 @@
+# 東京ユナイテッドFCプラス ニュース記事ページ（公式風テンプレート）
 
+以下のコードを `news-template.html` として保存すると、東京ユナイテッドFCの公式サイト風のシンプルなニュース記事ページになります。
 
+---
+
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -22,6 +27,10 @@ body {
   background: #fff;
 }
 
+/* ===== ヘッダー画像 ===== */
+#main_visual {
+  width: 100%;
+}
 
 #main_visual .visual {
   height: 220px;
@@ -143,6 +152,10 @@ body {
 </head>
 <body>
 
+<!-- ヘッダー画像 -->
+<div id="main_visual">
+  <div class="visual"></div>
+</div>
 
 <!-- 記事 -->
 <div class="article-wrap">
@@ -153,28 +166,29 @@ body {
   </div>
 
   <!-- 日付 -->
-  <div class="article-date">2026.03.2</div>
+  <div class="article-date">2026.03.02</div>
 
   <!-- タイトル -->
   <h1 class="article-title">新加入選手のお知らせ</h1>
 
-  
+
 
   <!-- 本文 -->
   <div class="article-body">
     <p>
-      2026年度の東京ユナイテッドFCプラスに東京ユナイテッドFCから下記の4選手が移籍しましたのでお知らせします。    </p>
+      2026年度東京ユナイテッドFCプラスに東京ユナイテッドFCより下記の4選手が移籍加入することになりましたのでお知らせします。
+    </p>
 
     <p>
-     各選手の新たなステージでの活躍にご期待ください。
+      4選手の新たなステージでの活躍にご期待ください。
     </p>
 
    
     <ul>
-      <li>⑦伊藤光輝選手</li>
-      <li>⑧飯田虎之介選手</li>
-<li>㉖瀬川泰樹選手</li>
-      <li>㉞新井秀明選手</li>
+      <li>⑦伊藤光暉選手
+      <li>⑧飯田虎之介選手
+      <li>㉖瀬川泰樹選手
+ <li>㉞新井秀明選手
     </ul>
   </div>
 
@@ -188,4 +202,3 @@ body {
 </body>
 </html>
 ```
-
