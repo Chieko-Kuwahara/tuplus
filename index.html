@@ -541,8 +541,20 @@ document.querySelectorAll(".season button").forEach(btn=>{
 });
 
 /* 初期表示 */
-window.addEventListener("DOMContentLoaded",()=>{
-  loadMatches("2026");
+window.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(location.search);
+  const tab = params.get("tab");
+
+  if (tab === "news") {
+    show("news");
+    loadNews();
+  } else if (tab === "player") {
+    show("player");
+    loadPlayers();
+  } else {
+    show("match");
+    loadMatches("2026");
+  }
 });
 </script>
 
