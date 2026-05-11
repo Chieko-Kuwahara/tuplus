@@ -544,8 +544,17 @@ document.getElementById("tab_news").onclick=()=>{
   loadNews();
 };
 
-document.querySelectorAll(".season button").forEach(btn=>{
-  btn.onclick=()=>{
+document.querySelectorAll(".season button").forEach(btn => {
+  btn.onclick = () => {
+    // すべてのボタンから active を外す
+    document.querySelectorAll(".season button").forEach(b => {
+      b.classList.remove("active");
+    });
+
+    // クリックしたボタンを青くする
+    btn.classList.add("active");
+
+    // 該当年度の試合を読み込む
     loadMatches(btn.dataset.year);
   };
 });
@@ -565,6 +574,7 @@ window.addEventListener("DOMContentLoaded", () => {
     show("match");
     loadMatches("2026");
   }
+  document.querySelector('.season button[data-year="2026"]').classList.add("active");
 });
 </script>
 
