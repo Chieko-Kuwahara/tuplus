@@ -311,11 +311,36 @@ td,th { border:1px solid #ccc; padding:8px; }
   flex-shrink: 0;
 }
 
-/* スマホでは少し小さく */
+/* ===== スマホ用：対戦相手を2行目に表示 ===== */
 @media (max-width: 768px) {
-  .team-emblem {
-    width: 20px;
-    height: 20px;
+
+  .match_row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  /* 1行目：節 + 日時 + HOME/AWAY + 会場 */
+  .match_info {
+    width: calc(100% - 40px); /* match_sec の幅 40px を除く */
+    flex: none;
+    margin-bottom: 6px;
+  }
+
+  /* 2行目左：エンブレム + 対戦相手 */
+  .match_vs {
+    width: 70%;
+    flex: none;
+    margin-left: 40px;   /* match_sec の幅に合わせて左に余白 */
+    font-size: 14px;
+  }
+
+  /* 2行目右：スコア */
+  .match_score {
+    width: calc(30% - 40px);
+    flex: none;
+    text-align: right;
+    font-size: 18px;
   }
 }
 </style>
