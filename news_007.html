@@ -1,0 +1,270 @@
+# 東京ユナイテッドFCプラス ニュース記事ページ（公式風テンプレート）
+
+以下のコードを `news-template.html` として保存すると、東京ユナイテッドFCの公式サイト風のシンプルなニュース記事ページになります。
+
+---
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ニュースタイトル | 東京ユナイテッドFCプラス</title>
+
+<link rel="stylesheet" href="https://use.typekit.net/wcn1pnu.css">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "source-han-sans-japanese", "Hiragino Sans", "Yu Gothic", sans-serif;
+  color: #222;
+  line-height: 1.9;
+  background: #fff;
+}
+
+/* ===== ヘッダー画像 ===== */
+#main_visual {
+  width: 100%;
+}
+
+#main_visual .visual {
+  height: 220px;
+  background-image: url('https://tokyo-united-fc.s3.ap-northeast-1.amazonaws.com/image/banner/16912_1477x1108_67c254fb6cad0.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+/* ===== コンテンツ ===== */
+.article-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.breadcrumb a {
+  color: #777;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.article-date {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.article-title {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 25px;
+  border-bottom: 3px solid #005BAC;
+  padding-bottom: 18px;
+}
+
+.article-image {
+  margin: 0 0 35px;
+}
+
+.article-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.article-body {
+  font-size: 16px;
+}
+
+.article-body p {
+  margin: 0 0 1.6em;
+}
+
+.article-body h2 {
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+  padding-left: 12px;
+  border-left: 4px solid #005BAC;
+  font-size: 24px;
+}
+
+.article-body ul {
+  margin: 0 0 1.6em 1.5em;
+}
+
+.article-body li {
+  margin-bottom: 0.5em;
+}
+
+/* ===== 戻るリンク ===== */
+.back-link {
+  margin-top: 50px;
+}
+
+.back-link a {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #005BAC;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.back-link a:hover {
+  opacity: 0.9;
+}
+
+/* ===== スマホ ===== */
+@media (max-width: 768px) {
+  #main_visual .visual {
+    height: 160px;
+  }
+
+  .article-wrap {
+    padding: 30px 16px 60px;
+  }
+
+  .article-title {
+    font-size: 26px;
+  }
+
+  .article-body {
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー画像 -->
+<div id="main_visual">
+  <div class="visual"></div>
+</div>
+
+<!-- 記事 -->
+<div class="article-wrap">
+
+  <!-- パンくず -->
+  <div class="breadcrumb">
+    <a href="index.html">東京ユナイテッドFCプラス</a> &gt; ニュース
+  </div>
+
+  <!-- 日付 -->
+  <div class="article-date">2026.05.24</div>
+
+  <!-- タイトル -->
+  <h1 class="article-title">第4節試合結果 </h1>
+
+  <!-- 画像 -->
+<figure class="article-image">
+    <img src="images/sample.jpg" alt="アップ②">
+  </figure>
+
+  <figure class="article-image">
+    <img src="images/sample.jpg" alt="5月24日集合">
+  </figure>
+
+  <!-- 本文 -->
+  <div class="article-body">
+    <p>
+      第4節試合結果　VS　シティFC.　2-2 draw。
+    </p>
+
+    <p>
+      得点者　⑥杉山俊　⑧飯田虎之介
+    </p>
+
+    <h2>東京ユナイテッドFCは5月24日に東京リーグ都2部3ブロック第4節でシティFC.と対戦した。入念なアップを行い（知らんけど）試合に臨むイレブン。前半12分に⑥杉山選手が先制も15分に失点。得点も早ければ失点も早い。その後後半にも⑧飯田選手が得点するもあっさり失点しdrow決着。今節は大人の事情により非公開となりましたが、次節以降、また熱い応援をよろしくお願いいたします。</h2>
+
+      </div>
+
+  <!-- 戻る -->
+  <div class="back-link">
+    <a href="index.html?tab=news">ニュース一覧へ戻る</a>
+  </div>
+
+</div>
+
+</body>
+</html>
+```
+
+---
+
+# 使い方
+
+## 1. ファイル名
+
+各ニュースごとに別ファイルを作成します。
+
+例：
+
+* `news_20260511.html`
+* `news_player_interview.html`
+* `news_match_report.html`
+
+## 2. `news.csv` のリンク先に設定
+
+```csv
+2026.05.11,新作応援幕が完成しました,news_20260511.html
+```
+
+## 3. 変更する箇所
+
+* `<title>`
+* `article-date`
+* `article-title`
+* 画像ファイル名
+* `article-body`
+
+---
+
+# 画像の置き場所
+
+同じフォルダ内に `images` フォルダを作り、画像を保存します。
+
+```text
+/images/sample.jpg
+```
+
+---
+
+# 公式風に見えるポイント
+
+* 上部に同じヘッダー画像
+* 青色の下線付きタイトル
+* 大きな記事画像
+* ゆったりした余白
+* 「ニュース一覧へ戻る」ボタン
+
+---
+
+# おすすめの活用例
+
+* 選手インタビュー
+* 試合レポート
+* 応援幕紹介
+* 卒業・入団記事
+* 保護者向けお知らせ
+
+---
+
+# 将来的な発展
+
+慣れてきたら、`news.csv` から本文データを読み込む仕組みにすることもできますが、まずはこのテンプレートを複製して記事を増やす方法が最も簡単です。
