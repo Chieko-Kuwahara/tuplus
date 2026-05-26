@@ -84,13 +84,15 @@ body{
   border-color:#007bff;
 }
 
-/* ===== 試合 ===== */
+/* ===== PC試合レイアウト ===== */
+
 .match_row{
   display:flex;
   align-items:center;
   gap:16px;
   padding:12px;
   border-bottom:1px solid #ddd;
+  flex-wrap:nowrap;
 }
 
 /* 節 */
@@ -108,14 +110,20 @@ body{
   display:flex;
   align-items:center;
   gap:10px;
-  flex:1;
-  min-width:0;
+
+  flex:0 0 620px;
+  min-width:620px;
+}
+
+/* HOME/AWAY */
+.label{
+  flex-shrink:0;
 }
 
 /* 会場 */
 .match_stadium{
   flex:1;
-  min-width:240px;
+  min-width:0;
 }
 
 /* 対戦相手 */
@@ -123,18 +131,19 @@ body{
   display:flex;
   align-items:center;
   gap:8px;
-  flex:1;
-  min-width:0;
+
+  flex:0 0 220px;
+  min-width:220px;
+
   font-weight:bold;
 }
 
 /* スコア */
 .match_score{
   margin-left:auto;
-  font-size:18px;
   white-space:nowrap;
+  font-size:18px;
 }
-
 /* ラベル */
 .label.home{
   background:#c4002f;
@@ -243,20 +252,6 @@ td,th { border:1px solid #ccc; padding:8px; }
     white-space: nowrap;
   }
 
-}
-  /* ===== 試合レイアウト ===== */
-
-.match_info{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex:0 0 520px;
-}
-
-.match_vs{
-  flex:1;
-  min-width:0;
-  font-weight:bold;
 }
 
 @media (max-width:768px){
