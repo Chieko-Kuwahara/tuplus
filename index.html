@@ -88,40 +88,65 @@ body{
 .match_row{
   display:flex;
   align-items:center;
+  gap:16px;
   padding:12px;
   border-bottom:1px solid #ddd;
 }
 
+/* 節 */
 .match_sec{
-  width:50px;
-  flex-shrink:0;
+  flex:0 0 40px;
 }
 
+/* 日付 */
 .match_date{
-  width:200px;
-  flex-shrink:0;
+  flex:0 0 120px;
 }
 
+/* 試合情報 */
 .match_info{
   display:flex;
   align-items:center;
   gap:10px;
-  width:520px;
-  flex-shrink:0;
-}
-.match_stadium {
   flex:1;
-  min-width:300px;
+  min-width:0;
 }
 
-.match_vs {
+/* 会場 */
+.match_stadium{
+  flex:1;
+  min-width:0;
+}
+
+/* 対戦相手 */
+.match_vs{
+  display:flex;
+  align-items:center;
+  gap:8px;
   flex:1;
   min-width:0;
   font-weight:bold;
 }
-.label.home { background:#c4002f; color:#fff; padding:2px 6px; }
-.label.away { background:#777; color:#fff; padding:2px 6px; }
 
+/* スコア */
+.match_score{
+  margin-left:auto;
+  font-size:18px;
+  white-space:nowrap;
+}
+
+/* ラベル */
+.label.home{
+  background:#c4002f;
+  color:#fff;
+  padding:2px 6px;
+}
+
+.label.away{
+  background:#777;
+  color:#fff;
+  padding:2px 6px;
+}
 .match_score.win { color:blue; font-weight:bold; }
 .match_score.lose { color:black; font-weight:bold; }
 .match_score.draw { color:green; font-weight:bold; }
