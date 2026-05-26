@@ -461,15 +461,13 @@ function loadMatches(year){
         div.innerHTML = `
 <div class="match_sec">${cols[0]}</div>
 
-<div class="match_info">
-  <div class="match_date">${date} ${time}</div>
+<div class="match_date">${date} ${time}</div>
 
-  <div class="label ${homeaway === "HOME" ? "home" : "away"}">
-    ${homeaway}
-  </div>
-
-  <div class="match_stadium">${stadium}</div>
+<div class="label ${homeaway === "HOME" ? "home" : "away"}">
+  ${homeaway}
 </div>
+
+<div class="match_stadium">${stadium}</div>
 
 <div class="match_vs">
   ${emblemHtml}
