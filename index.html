@@ -259,33 +259,35 @@ td, th {
     margin-right:8px;
   }
 
-  /* 会場（1行目の残り） */
-  .match_stadium{
-    flex:1;
-    min-width:0;
-    font-size:14px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
+  /* ===== 会場（1行目）===== */
+.match_stadium{
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14px;
 
-  /* 2行目（VS行を丸ごと1列にする） */
-  .match_vs{
-    flex:0 0 100%;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-top:4px;
-    font-size:14px;
-    min-width:0;
-  }
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-  /* スコア（2行目の右端） */
-  .match_score{
-    margin-left:auto;
-    white-space:nowrap;
-    font-size:16px;
-  }
+/* ===== 2行目（VS＋スコアを同一行で安定）===== */
+.match_vs{
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 4px;
+  font-size: 14px;
+  min-width: 0;
+}
+
+/* スコアが3行目に落ちるのを防ぐ保険 */
+.match_score{
+  margin-left: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 
   /* エンブレム */
   .match_vs img{
