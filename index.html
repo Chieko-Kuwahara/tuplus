@@ -9,346 +9,281 @@
 <link rel="stylesheet" href="https://use.typekit.net/wcn1pnu.css">
 
 <style>
+/* =========================
+   BASE
+========================= */
 
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
-  overflow-x:hidden;
+body {
+  overflow-x: hidden;
 }
 
 #main_visual,
 .visual,
 .inner,
-#main{
-  max-width:100%;
-  overflow-x:hidden;
+#main {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-
-
+/* flex崩れ防止 */
 .match_info,
 .match_vs,
-.match_score{
-  min-width:0;
+.match_score {
+  min-width: 0;
 }
-  
+
+/* =========================
+   HERO
+========================= */
+
 #main_visual .visual {
   background-image: url(https://tokyo-united-fc.s3.ap-northeast-1.amazonaws.com/image/banner/16912_1477x1108_67c254fb6cad0.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-
-  /* ★ここが重要 */
   background-position: center center;
-  
   height: 280px;
 }
 
-/* ===== タブ ===== */
-/* ===== タブ ===== */
+/* =========================
+   TAB
+========================= */
 
-.m-submenu{
-  display:flex;
-  gap:10px;
-  margin-top:20px;
-  margin-bottom:20px;
+.m-submenu {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
 }
 
-.m-submenu a{
-  display:inline-block;
-  padding:10px 18px;
-
-  background:#f5f5f5;
-  border:1px solid #ccc;
-  border-radius:6px;
-
-  color:#222;
-  text-decoration:none;
-  font-weight:bold;
-
-  transition:.2s;
+.m-submenu a {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .2s;
 }
 
-.m-submenu a:hover{
-  background:#e9e9e9;
+.m-submenu a:hover {
+  background: #e9e9e9;
 }
 
-.m-submenu a.active{
-  background:#007bff;
-  color:#fff;
-  border-color:#007bff;
+.m-submenu a.active {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
 }
 
-/* ===== PC試合レイアウト ===== */
-.match_row{
-  display:flex;
-  align-items:center;
-  gap:16px;
+/* =========================
+   PC MATCH LIST
+========================= */
 
-  padding:12px;
-  border-bottom:1px solid #ddd;
-
-  flex-wrap:nowrap;
+.match_row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  flex-wrap: nowrap;
 }
 
 /* 節 */
-.match_sec{
-  width:40px;
-  flex-shrink:0;
-}
-
-/* 試合情報 */
-.match_info{
-  display:flex;
-  align-items:center;
-  gap:10px;
-
-  width:620px;
-  flex-shrink:0;
+.match_sec {
+  width: 40px;
+  flex-shrink: 0;
 }
 
 /* 日付 */
-.match_date{
-  width:170px;
-  flex-shrink:0;
+.match_date {
+  width: 170px;
+  flex-shrink: 0;
 }
 
-/* ラベル */
-.label{
-  flex-shrink:0;
+/* HOME/AWAY */
+.label {
+  flex-shrink: 0;
+}
+
+.label.home {
+  background: #c4002f;
+  color: #fff;
+  padding: 2px 6px;
+}
+
+.label.away {
+  background: #777;
+  color: #fff;
+  padding: 2px 6px;
+}
+
+/* 試合情報 */
+.match_info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 620px;
+  flex-shrink: 0;
 }
 
 /* 会場 */
-.match_stadium{
-  width:340px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-/* 対戦相手 */
-.match_vs{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-weight:bold;
-
-
-}
-
-/* スコア */
-.match_score{
-  margin-left:auto;
-  white-space:nowrap;
-  flex-shrink:0;
-  font-size:18px;
-}
-/* ラベル */
-.label.home{
-  background:#c4002f;
-  color:#fff;
-  padding:2px 6px;
-}
-
-.label.away{
-  background:#777;
-  color:#fff;
-  padding:2px 6px;
-}
-.match_score.win { color:blue; font-weight:bold; }
-.match_score.lose { color:black; font-weight:bold; }
-.match_score.draw { color:green; font-weight:bold; }
-
-
-/* ===== セクション ===== */
-section { margin-top:20px; }
-
-/* ===== テーブル ===== */
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-#player_section table{
-  min-width:700px;
-}
-td,th { border:1px solid #ccc; padding:8px; }
-/* ===== 選手テーブル調整 ===== */
-
-#player_section table {
-  table-layout: fixed;
-}
-
-/* 名前 */
-#player_section th:nth-child(1),
-#player_section td:nth-child(1){
-  width:120px;
+.match_stadium {
+  width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* ポジション */
-#player_section th:nth-child(2),
-#player_section td:nth-child(2){
-  width:60px;
-  text-align:center;
+/* 対戦相手 */
+.match_vs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  justify-content: flex-start; /* ←中央ズレ防止 */
 }
 
-/* 背番号 */
-#player_section th:nth-child(3),
-#player_section td:nth-child(3){
-  width:70px;
-  text-align:center;
-}
-
-/* 生年月日 */
-#player_section th:nth-child(4),
-#player_section td:nth-child(4){
-  width:120px;
-  text-align:center;
-}
-
-/* 身長・体重 */
-#player_section th:nth-child(5),
-#player_section td:nth-child(5),
-#player_section th:nth-child(6),
-#player_section td:nth-child(6){
-  width:70px;
-  text-align:center;
-}
-
-/* 前所属 */
-#player_section th:nth-child(7),
-#player_section td:nth-child(7){
-  width:auto;
-  white-space: normal;
-}
-/* ===== 非表示制御 ===== */
-.hidden { display:none; }
-
-.season button.active {
-  background:#007bff;
-  color:#fff;
-}
-.table_wrap{
-  width:100%;
-  overflow-x:auto;
-  -webkit-overflow-scrolling: touch;
-}
-  /* ===== スマホ用 選手テーブル ===== */
-@media (max-width: 768px){
-
-  #player_section table {
-    table-layout: auto;
-    min-width: 900px;
-  }
-
-  #player_section th,
-  #player_section td{
-    white-space: nowrap;
-  }
-}
-
-
-
-
-/* エンブレム画像 */
-.team-emblem {
+/* エンブレム */
+.team-emblem,
+.match_vs img {
   width: 24px;
   height: 24px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
-/* ===== スマホ用：対戦相手を2行目に表示 ===== */
-@media (max-width:768px){
-
-  .match_row{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:flex-start;
-    gap:6px 0;
-  }
-
-  /* 節 */
-  .match_sec{
-    flex:0 0 32px;
-  }
-
-  /* 日付 */
-  .match_date{
-    flex:0 0 90px;
-    font-size:14px;
-  }
-
-  /* 1行目 */
-  /* HOME/AWAY */
-.label{
-  margin-right:10px;
-}
-  flex-shrink:0;
-  margin-left:8px;
+/* スコア */
+.match_score {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 18px;
 }
 
-/* 会場 */
-.match_stadium{
-  flex:1;
-  min-width:0;
-  font-size:14px;
+.match_score.win { color: blue; font-weight: bold; }
+.match_score.lose { color: black; font-weight: bold; }
+.match_score.draw { color: green; font-weight: bold; }
+
+/* =========================
+   TABLE
+========================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-
-  /* 2行目：エンブレム＋対戦相手 */
-  .match_vs{
-    display:flex;
-    align-items:center;
-    gap:6px;
-
-    flex:1 1 auto;
-    margin-left:122px;
-
-    font-size:14px;
-    min-width:0;
-  }
-
-  /* スコア */
-  .match_score{
-    margin-left:auto;
-    font-size:16px;
-    white-space:nowrap;
-  }
-
-  /* エンブレム */
-  .match_vs img{
-    width:20px;
-    height:20px;
-    flex-shrink:0;
-  }
-  }
-  @media (min-width:769px){
-
-  .match_date{
-    font-size:16px;
-  }
-
-  .label{
-    font-size:14px;
-  }
-
-  .match_stadium{
-    font-size:16px;
-  }
-
-  .match_vs{
-    font-size:16px;
-  }
-
-  .match_score{
-    font-size:18px;
-  }
-.match_row{
-  outline:3px solid red;
+td, th {
+  border: 1px solid #ccc;
+  padding: 8px;
 }
+
+#player_section table {
+  min-width: 700px;
+  table-layout: fixed;
+}
+
+/* 列 */
+#player_section th:nth-child(1),
+#player_section td:nth-child(1){ width:120px; white-space:nowrap; }
+
+#player_section th:nth-child(2),
+#player_section td:nth-child(2){ width:60px; text-align:center; }
+
+#player_section th:nth-child(3),
+#player_section td:nth-child(3){ width:70px; text-align:center; }
+
+#player_section th:nth-child(4),
+#player_section td:nth-child(4){ width:120px; text-align:center; }
+
+#player_section th:nth-child(5),
+#player_section td:nth-child(5),
+#player_section th:nth-child(6),
+#player_section td:nth-child(6){ width:70px; text-align:center; }
+
+#player_section th:nth-child(7),
+#player_section td:nth-child(7){
+  width: auto;
+  white-space: normal;
+}
+
+/* =========================
+   UTIL
+========================= */
+
+.hidden { display: none; }
+
+.season button.active {
+  background: #007bff;
+  color: #fff;
+}
+
+.table_wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .match_row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 6px 0;
+  }
+
+  .match_sec { width: 32px; }
+
+  .match_date {
+    width: 90px;
+    font-size: 14px;
+  }
+
+  .match_info {
+    width: calc(100% - 122px);
+  }
+
+  .match_stadium {
+    font-size: 14px;
+  }
+
+  .match_vs {
+    font-size: 14px;
+  }
+
+  .match_score {
+    font-size: 16px;
+  }
+
+  .match_vs img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* =========================
+   PC FONT FIX
+========================= */
+
+@media (min-width: 769px) {
+
+  .match_date,
+  .match_stadium,
+  .match_vs {
+    font-size: 16px;
+  }
+
+  .match_score {
+    font-size: 18px;
+  }
 }
 </style>
 </head>
