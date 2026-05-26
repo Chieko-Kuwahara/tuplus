@@ -232,61 +232,66 @@ td, th {
    MOBILE
 ========================= */
 
-@media (max-width:768px) {
+@media (max-width:768px){
 
-  /* 1行目はそのまま維持 */
-  .match_row {
-    flex-wrap: wrap;
-    align-items: flex-start;
+  /* 全体 */
+  .match_row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    gap:6px 0;
   }
 
-  .match_sec {
-    width: 32px;
+  /* 節 */
+  .match_sec{
+    flex:0 0 32px;
   }
 
-  .match_date {
-    width: 90px;
-    font-size: 14px;
+  /* 日付 */
+  .match_date{
+    flex:0 0 90px;
+    font-size:14px;
   }
 
-  /* 1行目グループ（会場まで） */
-  .match_info {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  /* HOME/AWAY */
+  .label{
+    flex-shrink:0;
+    margin-right:8px;
   }
 
-  .match_stadium {
-    flex: 1;
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 14px;
+  /* 会場（1行目の残り） */
+  .match_stadium{
+    flex:1;
+    min-width:0;
+    font-size:14px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
 
-  /* 🔴 ここが重要：2行目を作る */
-  .match_vs {
-    flex: 0 0 100%;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 4px;
-    font-size: 14px;
+  /* 2行目（VS行を丸ごと1列にする） */
+  .match_vs{
+    flex:0 0 100%;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:4px;
+    font-size:14px;
+    min-width:0;
   }
 
-  /* スコアは2行目の右端 */
-  .match_score {
-    margin-left: auto;
-    white-space: nowrap;
-    font-size: 16px;
+  /* スコア（2行目の右端） */
+  .match_score{
+    margin-left:auto;
+    white-space:nowrap;
+    font-size:16px;
   }
 
-  .match_vs img {
-    width: 20px;
-    height: 20px;
+  /* エンブレム */
+  .match_vs img{
+    width:20px;
+    height:20px;
+    flex-shrink:0;
   }
 }
 
