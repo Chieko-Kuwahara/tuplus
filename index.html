@@ -83,7 +83,7 @@ body{
 /* ===== PC試合レイアウト ===== */
 .match_row{
   display:flex;
-  align-items:flex-start;
+  align-items:center;
   gap:16px;
 
   padding:12px;
@@ -130,13 +130,10 @@ body{
 /* 対戦相手 */
 .match_vs{
   display:flex;
-  align-items:flex-start;
+  align-items:center;
   gap:8px;
-
-  flex:0 0 auto;
-
   font-weight:bold;
- 
+
 
 }
 
@@ -349,18 +346,7 @@ td,th { border:1px solid #ccc; padding:8px; }
     font-size:18px;
   }
 
-
-  @media (min-width:769px){
-
-  .match_row *{
-    font-size:16px !important;
-  }
-
-  .match_score{
-    font-size:18px !important;
-  }
-
-}}
+}
 </style>
 </head>
 
