@@ -85,25 +85,29 @@ body{
 }
 
 /* ===== 試合 ===== */
-.match_row {
+.match_row{
   display:flex;
+  align-items:center;
   padding:12px;
   border-bottom:1px solid #ddd;
 }
 
-.match_sec {
-  flex:0 0 50px;
+.match_sec{
+  width:50px;
+  flex-shrink:0;
 }
 
-.match_date {
-  flex:0 0 200px;
+.match_date{
+  width:200px;
+  flex-shrink:0;
 }
 
-.match_info {
+.match_info{
   display:flex;
   align-items:center;
   gap:10px;
-  flex:1;
+  width:520px;
+  flex-shrink:0;
 }
 .match_stadium {
   flex:1;
