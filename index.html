@@ -91,15 +91,20 @@ body{
   border-bottom:1px solid #ddd;
 }
 
-.match_sec { width:50px; }
-.match_date { width:240px; }
-  .match_info {
+.match_sec {
+  flex:0 0 50px;
+}
+
+.match_date {
+  flex:0 0 240px;
+}
+
+.match_info {
   display:flex;
   align-items:center;
   gap:10px;
-  flex:0 0 520px;
+  flex:1;
 }
-
 .match_stadium {
   flex:1;
   min-width:300px;
