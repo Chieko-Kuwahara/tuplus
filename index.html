@@ -232,61 +232,55 @@ td, th {
    MOBILE
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width:768px) {
 
+  /* 1行目はそのまま維持 */
   .match_row {
     flex-wrap: wrap;
     align-items: flex-start;
-    gap: 6px 0;
   }
 
-  .match_sec { width: 32px; }
+  .match_sec {
+    width: 32px;
+  }
 
   .match_date {
     width: 90px;
     font-size: 14px;
   }
 
-.match_info {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+  /* 1行目グループ（会場まで） */
+  .match_info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-.label {
-  flex: 0 0 auto;
-  white-space: nowrap;
-  margin-right: 10px;
-}
-
-.match_stadium {
-  flex: 1;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.match_vs {
-  flex: 0 0 100%;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.match_score {
-  white-space: nowrap;
-}
   .match_stadium {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 14px;
   }
 
+  /* 🔴 ここが重要：2行目を作る */
   .match_vs {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
     font-size: 14px;
   }
 
+  /* スコアは2行目の右端 */
   .match_score {
+    margin-left: auto;
+    white-space: nowrap;
     font-size: 16px;
   }
 
