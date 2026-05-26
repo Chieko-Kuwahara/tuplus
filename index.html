@@ -282,20 +282,19 @@ td,th { border:1px solid #ccc; padding:8px; }
   }
 
   /* 1行目 */
-  .match_info{
-    display:flex;
-    align-items:center;
-    gap:8px;
+  /* HOME/AWAY */
+.label{
+  flex-shrink:0;
+  margin-left:8px;
+}
 
-    flex:1 1 calc(100% - 122px);
-    min-width:0;
-  }
+/* 会場 */
+.match_stadium{
+  flex:1;
+  min-width:0;
+  font-size:14px;
+}
 
-  /* 会場 */
-  .match_stadium{
-    min-width:0;
-    font-size:14px;
-  }
 
   /* 2行目：エンブレム＋対戦相手 */
   .match_vs{
