@@ -270,16 +270,28 @@ td,th { border:1px solid #ccc; padding:8px; }
     flex:unset;
   }
 
-  .match_vs{
-    width:70%;
-    margin-top:6px;
-  }
+ /* 2行目：対戦相手 */
+.match_vs{
+  display:flex;
+  align-items:center;
+  gap:6px;
 
-  .match_score{
-    width:30%;
-    margin-top:6px;
-    text-align:right;
-  }
+  margin-left:122px;
+
+  flex:0 1 auto;
+  min-width:0;
+
+  font-size:14px;
+}
+
+/* スコア */
+.match_score{
+  margin-left:8px;
+  font-size:16px;
+  white-space:nowrap;
+
+  flex-shrink:0;
+}
 }
   .match_info{
   display:flex;
