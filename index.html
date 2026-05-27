@@ -268,23 +268,22 @@ td, th {
   @media (max-width:768px){
 
   /* ★2行目の入れ物 */
+ @media (max-width:768px){
+
   .match_vs{
     display:flex;
     align-items:center;
     gap:6px;
-width:100%;
-    font-size:14px;
-    
+    min-width:0;
+    flex:1;
   }
 
-  /* エンブレム */
   .match_vs img{
     width:18px;
     height:18px;
     flex-shrink:0;
   }
 
-  /* スコア右寄せ */
   .match_score{
     margin-left:auto;
     white-space:nowrap;
