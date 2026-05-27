@@ -238,30 +238,37 @@ td, th {
     display:flex;
     flex-wrap:wrap;
     align-items:center;
-    gap:6px 8px;
+    gap:4px 6px;
   }
 
-  .match_sec{ flex:0 0 32px; }
+  /* 節 */
+  .match_sec{
+    flex:0 0 32px;
+  }
 
+  /* 日付（固定幅に戻すのが重要） */
   .match_date{
-    flex:0 0 90px;
+    flex:0 0 110px;
     white-space:nowrap;
     font-size:14px;
   }
 
+  /* HOME/AWAY */
   .label{
     flex:0 0 auto;
     white-space:nowrap;
   }
 
+  /* 会場（ここが重要修正） */
   .match_stadium{
-    flex:1 1 auto;
+    flex:1 1 100%;
     min-width:0;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
   }
 
+  /* 2行目 */
   .match_vs{
     flex:0 0 100%;
     display:flex;
