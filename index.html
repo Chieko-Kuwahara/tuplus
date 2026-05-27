@@ -234,68 +234,62 @@ td, th {
 
 @media (max-width:768px){
 
-  /* 行全体 */
+  /* ===== 行全体 ===== */
   .match_row{
     display:flex;
     flex-wrap:wrap;
-    align-items:center;
+    align-items:flex-start;
+    gap:6px 0;
   }
 
-  /* 節はそのまま固定 */
+  /* ===== 1行目（固定） ===== */
   .match_sec{
     flex:0 0 32px;
+    order:1;
   }
 
-  /* 日付 */
   .match_date{
     flex:0 0 90px;
     font-size:14px;
+    order:1;
   }
 
-  /* HOME/AWAY */
   .label{
     flex-shrink:0;
     margin-right:6px;
+    order:1;
   }
 
-  /* 会場（1行目の残り） */
   .match_stadium{
-    flex:1;
+    flex:1 1 auto;
     min-width:0;
     font-size:14px;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    order:1;
   }
 
-  /* =========================
-     ★重要：1行目グループを固定
-  ========================= */
-  .match_date,
-  .label,
-  .match_stadium{
-    order: 1;
-  }
-
-  /* =========================
-     2行目グループ
-  ========================= */
-
+  /* ===== 2行目（完全固定） ===== */
   .match_vs{
-    order: 2;
-    flex: 1 1 auto;
+    flex:1 1 auto;
     display:flex;
     align-items:center;
     gap:6px;
+
     font-size:14px;
     min-width:0;
+
+    order:2;
   }
 
   .match_score{
-    order: 2;
     margin-left:auto;
-    font-size:16px;
     white-space:nowrap;
+    flex-shrink:0;
+    font-size:16px;
+
+    order:2;
   }
 
   /* エンブレム */
@@ -305,7 +299,6 @@ td, th {
     flex-shrink:0;
   }
 }
-
 /* =========================
    PC FONT FIX
 ========================= */
