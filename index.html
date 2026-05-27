@@ -266,24 +266,32 @@ td, th {
      2行目（最低限）
   ===================== */
 
+  @media (max-width:768px){
+
+  /* ★2行目の入れ物 */
   .match_vs{
     display:flex;
-    width:100%;
     align-items:center;
     gap:6px;
-    margin-top:4px;
+
     font-size:14px;
+    width:100%;     /* ←これで1行として成立 */
   }
 
-  .match_score{
-    margin-left:auto;
-    white-space:nowrap;
-  }
-
+  /* エンブレム */
   .match_vs img{
     width:18px;
     height:18px;
+    flex-shrink:0;
   }
+
+  /* スコア右寄せ */
+  .match_score{
+    margin-left:auto;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+
 }
 /* =========================
    PC FONT FIX
