@@ -232,55 +232,49 @@ td, th {
     align-items:center;
   }
 
-  /* ======================
-     1行目（基本情報）
-  ====================== */
+  /* ===== 1行目 ===== */
 
   .match_sec{
-    flex:0 0 32px;
+    flex:0 0 28px; /* 少し縮小 */
   }
 
   .match_date{
-    flex:0 0 90px;   /* 折り返し前提の固定 */
-    font-size:14px;
-    white-space:normal; /* ←折り返しOK */
+    flex:0 0 85px; /* ★ここが重要（圧縮） */
+    font-size:13px;
+    white-space:normal;
   }
 
   .label{
     flex:0 0 auto;
-    white-space:nowrap;
+    font-size:12px;
   }
 
   .match_stadium{
-    flex:1 1 auto;   /* ←ここが「残り全部」 */
+    flex:1 1 120px; /* ★最低幅を与える */
     min-width:0;
-    font-size:14px;
-    white-space:normal; /* ←折り返しOK（重要） */
-    word-break:break-word;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
 
-  /* ======================
-     2行目（試合情報）
-  ====================== */
+  /* ===== 2行目 ===== */
 
   .match_vs{
     flex:0 0 100%;
     display:flex;
     align-items:center;
     gap:6px;
-    font-size:14px;
+    font-size:13px;
   }
 
   .match_score{
     margin-left:auto;
     white-space:nowrap;
-    flex-shrink:0;
   }
 
   .match_vs img{
-    width:20px;
-    height:20px;
-    flex-shrink:0;
+    width:18px;
+    height:18px;
   }
 }
 /* =========================
