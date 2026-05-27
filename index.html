@@ -225,44 +225,66 @@ td, th {
 
 @media (max-width:768px){
 
+  body{
+    overflow-x:hidden;
+  }
+
   .match_row{
     display:flex;
     flex-wrap:wrap;
     gap:6px 8px;
+    align-items:center;
   }
 
-  /* 1行目 */
+  /* =====================
+     1行目
+  ===================== */
+
   .match_sec{
     flex:0 0 28px;
   }
 
   .match_date{
-    flex:0 0 85px;
+    flex:0 0 80px;
     font-size:13px;
+    white-space:normal;
+    word-break:break-word;
   }
 
   .label{
     flex:0 0 auto;
-  }
-
-  .match_stadium{
-    flex:1 1 auto;
-    min-width:0;
+    font-size:12px;
     white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    padding:2px 4px;
   }
 
-  /* ★ここが修正ポイント */
+  /* ★会場：はみ出し完全禁止 + 折り返しOK */
+  .match_stadium{
+    flex:1 1 0;
+    min-width:0;
+
+    font-size:13px;
+
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+
+    overflow:hidden; /* ←はみ出し防止の最後の砦 */
+  }
+
+  /* =====================
+     2行目
+  ===================== */
+
   .match_vs{
-    flex:1 1 auto;   /* ←100%をやめる */
+    flex:0 0 100%;
     display:flex;
     align-items:center;
     gap:6px;
     font-size:14px;
+    min-width:0;
   }
 
-  /* スコアをVSの中に“合流”させる */
   .match_score{
     margin-left:auto;
     white-space:nowrap;
@@ -272,6 +294,7 @@ td, th {
   .match_vs img{
     width:18px;
     height:18px;
+    flex-shrink:0;
   }
 }
 /* =========================
