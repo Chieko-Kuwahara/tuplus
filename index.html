@@ -234,25 +234,19 @@ td, th {
 
 @media (max-width:768px){
 
-  /* ===== 行全体 ===== */
   .match_row{
     display:flex;
-    flex-direction:column; /* ★ここが重要：行を分離 */
-    gap:4px;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px 8px;
   }
 
-  /* =========================
-     1行目（情報列）
-  ========================= */
- 
-
-  .match_sec{
-    flex:0 0 32px;
-  }
+  .match_sec{ flex:0 0 32px; }
 
   .match_date{
-    flex:0 0 auto;
+    flex:0 0 90px;
     white-space:nowrap;
+    font-size:14px;
   }
 
   .label{
@@ -261,17 +255,15 @@ td, th {
   }
 
   .match_stadium{
-    flex:1;
+    flex:1 1 auto;
     min-width:0;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
   }
 
-  /* =========================
-     2行目（試合情報）
-  ========================= */
   .match_vs{
+    flex:0 0 100%;
     display:flex;
     align-items:center;
     gap:6px;
