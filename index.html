@@ -275,14 +275,17 @@ td, th {
   /* =====================
      2行目
   ===================== */
+@media (max-width:768px){
 
+  /* ★2行目だけ安定させる */
   .match_vs{
-    flex:0 0 100%;
     display:flex;
     align-items:center;
     gap:6px;
-    font-size:14px;
+
+    flex:0 0 100%;
     min-width:0;
+    font-size:14px;
   }
 
   .match_score{
@@ -294,8 +297,8 @@ td, th {
   .match_vs img{
     width:18px;
     height:18px;
-    flex-shrink:0;
   }
+
 }
 /* =========================
    PC FONT FIX
@@ -313,30 +316,7 @@ td, th {
     font-size: 18px;
   }
 }
-   @media (max-width:768px){
-
-  .match_row{
-    flex-wrap: wrap;
-  }
-
-  .match_date,
-  .match_stadium,
-  .match_vs,
-  .match_score{
-    min-width: 0;
-  }
-
-  .match_stadium{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .match_score{
-    margin-left: auto;
-    white-space: nowrap;
-  }
-}
+   
 </style>
 </head>
 
