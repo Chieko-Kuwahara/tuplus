@@ -225,41 +225,41 @@ td, th {
 
 @media (max-width:768px){
 
-  /* 行全体は通常flexに戻す */
   .match_row{
-    display:flex;
+    display:flex !important;
     flex-wrap:wrap;
     align-items:center;
-    gap:6px 10px;
   }
 
-  /* 左側情報 */
+  /* 1行目を構成する要素 */
   .match_sec,
   .match_date,
-  .label{
-    flex:0 0 auto;
-    white-space:nowrap;
+  .label,
+  .match_stadium{
+    display:inline-block;
+    vertical-align:middle;
   }
 
-  /* 会場 */
+  .match_sec{ width:28px; }
+  .match_date{ width:80px; }
+  .label{ margin-right:6px; }
+
   .match_stadium{
-    flex:1 1 100%;
-    min-width:0;
+    max-width:100%;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
   }
 
-  /* VS（分離してOK＝昔の状態） */
+  /* 2行目（最低限復活） */
   .match_vs{
-    flex:0 0 100%;
     display:flex;
+    width:100%;
     align-items:center;
     gap:6px;
-    font-size:14px;
+    margin-top:4px;
   }
 
-  /* スコア */
   .match_score{
     margin-left:auto;
     white-space:nowrap;
