@@ -232,32 +232,45 @@ td, th {
     align-items:center;
   }
 
-  /* 1行目の固定要素 */
-  .match_sec,
-  .match_date,
+  /* ======================
+     1行目（基本情報）
+  ====================== */
+
+  .match_sec{
+    flex:0 0 32px;
+  }
+
+  .match_date{
+    flex:0 0 90px;   /* 折り返し前提の固定 */
+    font-size:14px;
+    white-space:normal; /* ←折り返しOK */
+  }
+
   .label{
     flex:0 0 auto;
     white-space:nowrap;
   }
 
-  /* ★会場は“伸ばさない”のがポイント */
   .match_stadium{
-    flex:1 1 auto;
+    flex:1 1 auto;   /* ←ここが「残り全部」 */
     min-width:0;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    font-size:14px;
+    white-space:normal; /* ←折り返しOK（重要） */
+    word-break:break-word;
   }
 
-  /* 2行目（VS行） */
+  /* ======================
+     2行目（試合情報）
+  ====================== */
+
   .match_vs{
     flex:0 0 100%;
     display:flex;
     align-items:center;
     gap:6px;
+    font-size:14px;
   }
 
-  /* スコア右寄せ */
   .match_score{
     margin-left:auto;
     white-space:nowrap;
@@ -267,6 +280,7 @@ td, th {
   .match_vs img{
     width:20px;
     height:20px;
+    flex-shrink:0;
   }
 }
 /* =========================
