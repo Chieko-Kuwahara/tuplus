@@ -225,7 +225,6 @@ td, th {
 
 @media (max-width:768px){
 
-  /* 行全体 */
   .match_row{
     display:flex;
     flex-wrap:wrap;
@@ -233,7 +232,7 @@ td, th {
     align-items:center;
   }
 
-  /* 共通：固定しすぎない */
+  /* 1行目グループ */
   .match_sec,
   .match_date,
   .label{
@@ -241,7 +240,7 @@ td, th {
     white-space:nowrap;
   }
 
-  /* 会場だけ伸ばす（ここが核心） */
+  /* 会場は1行目の伸び役 */
   .match_stadium{
     flex:1 1 100%;
     min-width:0;
@@ -250,13 +249,12 @@ td, th {
     text-overflow:ellipsis;
   }
 
-  /* 2行目（VS行） */
+  /* ★2行目を“完全固定” */
   .match_vs{
-    flex:0 0 100%;
+    flex:0 0 calc(100% - 0px);
     display:flex;
     align-items:center;
     gap:6px;
-    min-width:0;
   }
 
   /* スコアは右端固定 */
@@ -266,7 +264,6 @@ td, th {
     flex-shrink:0;
   }
 
-  /* エンブレム */
   .match_vs img{
     width:20px;
     height:20px;
