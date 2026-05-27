@@ -229,47 +229,44 @@ td, th {
     display:flex;
     flex-wrap:wrap;
     gap:6px 8px;
-    align-items:center;
   }
 
-  /* ===== 1行目 ===== */
-
+  /* 1行目 */
   .match_sec{
-    flex:0 0 28px; /* 少し縮小 */
+    flex:0 0 28px;
   }
 
   .match_date{
-    flex:0 0 85px; /* ★ここが重要（圧縮） */
+    flex:0 0 85px;
     font-size:13px;
-    white-space:normal;
   }
 
   .label{
     flex:0 0 auto;
-    font-size:12px;
   }
 
   .match_stadium{
-    flex:1 1 120px; /* ★最低幅を与える */
+    flex:1 1 auto;
     min-width:0;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
   }
 
-  /* ===== 2行目 ===== */
-
+  /* ★ここが修正ポイント */
   .match_vs{
-    flex:0 0 100%;
+    flex:1 1 auto;   /* ←100%をやめる */
     display:flex;
     align-items:center;
     gap:6px;
     font-size:13px;
   }
 
+  /* スコアをVSの中に“合流”させる */
   .match_score{
     margin-left:auto;
     white-space:nowrap;
+    flex-shrink:0;
   }
 
   .match_vs img{
