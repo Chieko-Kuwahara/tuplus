@@ -131,29 +131,30 @@ body {
 }
 
 /* 対戦相手 */
-@media (max-width:768px){
-
-  .match_vs{
-    display:flex;
-    align-items:center;
-    width:70%;
-    gap:6px;
-    min-width:0;
-  }
-
-  .match_score{
-    width:30%;
-    text-align:right;
-    white-space:nowrap;
-  }
-
-  .match_vs img{
-    width:18px;
-    height:18px;
-    flex-shrink:0;
-  }
-
+.match_vs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  justify-content: flex-start; /* ←中央ズレ防止 */
 }
+
+/* エンブレム */
+.team-emblem,
+.match_vs img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* スコア */
+.match_score {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 18px;
+}
+
 .match_score.win { color: blue; font-weight: bold; }
 .match_score.lose { color: black; font-weight: bold; }
 .match_score.draw { color: green; font-weight: bold; }
@@ -261,25 +262,30 @@ td, th {
     text-overflow:ellipsis;
   }
 
+  /* =====================
+     2行目（最低限）
+  ===================== */
 
+  @media (max-width:768px){
 
   /* ★2行目の入れ物 */
- @media (max-width:768px){
-
   .match_vs{
     display:flex;
     align-items:center;
     gap:6px;
-    min-width:0;
-    flex:1;
+width:100%;
+    font-size:14px;
+    
   }
 
+  /* エンブレム */
   .match_vs img{
     width:18px;
     height:18px;
     flex-shrink:0;
   }
 
+  /* スコア右寄せ */
   .match_score{
     margin-left:auto;
     white-space:nowrap;
