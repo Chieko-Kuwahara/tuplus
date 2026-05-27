@@ -279,14 +279,14 @@ td, th {
 
   /* ★2行目だけ安定させる */
   .match_vs{
-    display:flex;
-    align-items:center;
-    gap:6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 
-    flex:0 0 100%;
-    min-width:0;
-    font-size:14px;
-  }
+  flex: 1 1 auto;  /* ←ここが重要（100%禁止） */
+  min-width: 0;
+  font-size: 14px;
+}
 
   .match_score{
     margin-left:auto;
